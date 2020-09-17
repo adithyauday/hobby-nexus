@@ -21,6 +21,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<beans:bean name="/homepage.htm" class="au.usyd.nexus.web.HomepageController"/>
+	
 	<context:component-scan base-package="au.usyd.nexus" />
 	
 	
