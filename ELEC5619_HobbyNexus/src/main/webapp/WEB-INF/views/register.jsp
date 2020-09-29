@@ -1,13 +1,19 @@
 <!-- Courtesy https://github.com/navinreddy20/TeluskoLiveProject -->
-<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
 	<title>Register</title>
+	<link rel="stylesheet" href="<c:url value="/resources/css/login_register.css"/>">
 </head>
-<body>
+
+<!-- include header -->
+<jsp:include page="header.jsp" />
+<body style="background-color:powderblue;">
+
 <form action ="addUser" method="get">
 <center>
-	<label><h1>Feedback Us</h1></label>
+	<label><h1>Register</h1></label><br><br>
   	<input type="text" name="name" placeholder="Enter your name" required="" /><br><br>
   	<input type="email" name="email" placeholder="Enter your email address" required="" /><br><br>
   	<input type="password" name="password" placeholder="Enter your password" required=""/> <br><br>
@@ -37,5 +43,6 @@
           });
         });
       </script>
+
 </body>
-</html>
+<jsp:include page="footer.jsp" />

@@ -4,9 +4,11 @@
 <head>
 	<title>Home</title>
 </head>
+<!-- include header -->
+<jsp:include page="header.jsp" />
 <body>
 <h1>
-	Hello world!  
+	Welcome to Hobby Nexus! 
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
