@@ -8,7 +8,7 @@
 
 
 ## Set up MySQL Database
--Make sure MySQL server is running on computer (on Windows >Servcies>MySQL80>Start)
+- Make sure MySQL server is running on computer (on Windows >Servcies>MySQL80>Start)
 - Configure local MySQL DB according to src>main>resources>database.properties
 - Create database nexus and table 'user' with details corressponding to User.java
 - If error "Field <name> doesn't have a default value, delete and create database again
