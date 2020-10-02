@@ -3,9 +3,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha512-UyNhw5RNpQaCai2EdC+Js0QL4RlVmiq41DkmCJsRV3ZxipG2L0HhTqIf/H9Hp8ez2EnFlkBnjRGJU2stW3Lj+w==" crossorigin="anonymous" />
 
-
 <header>
-<div class="navbar navbar navbar-expand-sm navbar-light bg-light justify-content-between fixed-top">
+<div class="navbar navbar navbar-expand-sm navbar-light bg-light justify-content-between fixed-top" id="navMenu">
 	<div class="container-fluid">
 	  <div class="navbar-header">
           <a class="navbar-brand" href="home">Hobby Nexus</a>
@@ -22,7 +21,7 @@
 		       	<button class="btn btn-outline-secondary" type="button">Search</button>
 		       </span>
 		    </div>
-		</form>
+		  </form>
 		<div class="navbar-nav ml-auto inline  "> 
 			<a class="nav-link" href="register"><span class="oi oi-account-login"></span> Login</a>
 		</div>
