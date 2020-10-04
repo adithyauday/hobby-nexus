@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 @Table(name="user")
 public class User implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	@Column private int id;
@@ -28,6 +30,7 @@ public class User implements Serializable {
 	@Column private String state;
 	@Column private int postcode;
 	
+	public User() {}
 	
 	public User(String name, String email, String password) {
 		this.name = name;
