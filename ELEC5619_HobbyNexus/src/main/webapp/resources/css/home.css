@@ -1,12 +1,14 @@
-#godown{
-   padding-top: 100px;
-}
-
 #map {
     height: 500px;
     width:  500px;
     margin: auto;
     border-radius: 50px
+
+#godown{
+   padding-top: 100px;
+}
+
+
   }
   html, body {
     height: 100%;

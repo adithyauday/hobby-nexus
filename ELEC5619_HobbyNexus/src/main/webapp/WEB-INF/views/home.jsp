@@ -17,6 +17,6 @@
 	
 	<P>  The time on the server is ${serverTime}. </P>
 	
-	<div id="map"></div>
+	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:60px;"></div>
 </body>
 </html>
