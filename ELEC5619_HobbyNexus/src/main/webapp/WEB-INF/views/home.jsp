@@ -3,6 +3,8 @@
 <html>
 <head>
 	<title>Home</title>
+	
+	<script src="<c:url value="/resources/js/map.js"/>" ></script>
 	<link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
 </head>
 <body>
@@ -14,5 +16,7 @@
 	</h1>
 	
 	<P>  The time on the server is ${serverTime}. </P>
+	
+	<div id="map"></div>
 </body>
 </html>

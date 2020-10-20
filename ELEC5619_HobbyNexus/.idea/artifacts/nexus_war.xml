@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nexus:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>nexus</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="nexus-1.0.0-BUILD-SNAPSHOT.war">
+      <element id="artifact" artifact-name="nexus:war exploded" />
+    </root>
+  </artifact>
+</component>
