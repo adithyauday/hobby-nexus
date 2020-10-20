@@ -48,6 +48,18 @@ function initMap() {
     {
       position: new google.maps.LatLng(-33.791539, 151.1782),
       type: "info"
+    },
+    {
+      position: new google.maps.LatLng(-33.79863, 151.1781),
+      type: "info"
+    },
+   	{
+      position: new google.maps.LatLng(-33.79762, 151.17083),
+      type: "info"
+    },
+   	{
+      position: new google.maps.LatLng(-33.7973, 151.16984),
+      type: "info"
     }
   ];
 
