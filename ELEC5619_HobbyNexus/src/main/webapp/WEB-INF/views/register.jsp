@@ -28,14 +28,14 @@
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="text" path="name" class="form-control" placeholder="Username"
                             autofocus="true" required = "required"></form:input>
-                <form:errors path="name"></form:errors>
+                <form:errors class = "text-danger" path="name"></form:errors>
             </div>
         </spring:bind>
 
         <spring:bind path="email">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="email" path="email" class="form-control" placeholder="Email" required = "required"></form:input>
-                <form:errors path="email"></form:errors>
+            <div class="form-group ">
+                <form:input type="email" path="email" class="form-control " placeholder="Email" required = "required"></form:input>
+                <form:errors class = "text-danger" path="email"></form:errors>
             </div>
         </spring:bind>
 
@@ -43,7 +43,7 @@
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="password" path="password" class="form-control"
                             placeholder="Password" required="required"></form:input>
-                <form:errors path="password"></form:errors>
+                <form:errors  class = "text-danger" path="password"></form:errors>
             </div>
         </spring:bind>
         
@@ -91,7 +91,7 @@
 </div>
 
 </div>
-<!-- https://codepen.io/colorlib/pen/rxddKy -->     
+<!-- https://codepen.io/prof12/pen/PoZmwWP -->     
 <script type="text/javascript">
 
 
