@@ -1,11 +1,17 @@
 package au.usyd.nexus.domain;
 
 import java.io.Serializable;
+import java.sql.Blob;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
@@ -20,87 +26,76 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	@Column private int id;
+	@Column private int user_id;
 	
-	@Column private String name;
-	@Column private String email;
+	@Column private String user_name;
+	@Column private String user_type;
 	@Column private String password;
-	@Column private String street_address;
-	@Column private String suburb;
-	@Column private String state;
-	@Column private int postcode;
+	@Column private String email;
+	@Column private String location;
+	@Column private Blob photo;
 	
-	public User() {}
-	
-	public User(String name, String email, String password) {
-		this.name = name;
-		this.email = email;
-		this.password = password;
+
+	public Blob getPhoto() {
+		return photo;
 	}
-	
-	public int getid() {
-		return id;
+
+	public void setPhoto(Blob photo) {
+		this.photo = photo;
 	}
-	public void setid(int id) {
-		this.id = id;
+
+	public int getUser_id() {
+		return user_id;
 	}
-	
-	public String getName() {
-		return name;
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public String getUser_name() {
+		return user_name;
 	}
-	
-	public String getEmail() {
-		return email;
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public String getUser_type() {
+		return user_type;
 	}
-	
+
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public String getStreet_address() {
-		return street_address;
-	}
-	public void setStreet_address(String street_address) {
-		this.street_address = street_address;
-	}
-	
-	public String getSuburb() {
-		return suburb;
-	}
-	public void setSuburb(String suburb) {
-		this.suburb = suburb;
-	}
-	
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	
-	public int getPostcode() {
-		return postcode;
-	}
-	public void setPostcode(int postcode) {
-		this.postcode = postcode;
+
+	public String getEmail() {
+		return email;
 	}
 
-	@Override
-	public String toString() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("ID: " + id + ";");
-        buffer.append("Name: " + name + ";");
-        buffer.append("Email Address: " + email);
-        return buffer.toString();
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
+
+	
+	
+
 	
 }
