@@ -39,7 +39,7 @@ INSERT INTO `hobby` VALUES ('3', 'Fitness', 'Fitness exercise is an exercise pro
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `user_type` int(11) DEFAULT NULL,
   `user_name` varchar(128) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
