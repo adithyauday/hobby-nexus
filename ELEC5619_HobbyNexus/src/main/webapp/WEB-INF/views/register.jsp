@@ -24,11 +24,11 @@
 	<div class="form-container sign-up-container">
 	<form:form action="addUser" method="post" modelAttribute="userForm" class="form-signin">
         <h2 class="form-signin-heading">Create your account</h2> <br>
-        <spring:bind path="name">
+        <spring:bind path="user_name">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="name" class="form-control" placeholder="Username"
+                <form:input type="text" path="user_name" class="form-control" placeholder="Username"
                             autofocus="true" required = "required"></form:input>
-                <form:errors class = "text-danger" path="name"></form:errors>
+                <form:errors class = "text-danger" path="user_name"></form:errors>
             </div>
         </spring:bind>
 

@@ -61,4 +61,19 @@ public class LoginDAO{
 			}
 			return null;
        }
+       
+       public User findById(Integer user_id) {
+			String SQL_QUERY =" from User as o where o.user_id=?";
+			Session session = sessionFactory.openSession();
+			Query query = session.createQuery(SQL_QUERY);
+			query.setParameter(0,user_id);
+			List list = query.list();
+
+			if ((list != null) && (list.size() > 0)) {
+				System.out.println("Got the user obj"+user_id);
+				return (User)list.get(0);
+			}
+			System.out.println("Did not get user obj"+user_id);
+			return null;
+      }
 }

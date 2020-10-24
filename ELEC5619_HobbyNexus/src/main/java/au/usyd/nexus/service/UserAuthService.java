@@ -25,4 +25,8 @@ public class UserAuthService {
        public User findByEmail(String email) {
 			return loginDAO.findByEmail(email);
       }
+       
+       public User findById(Integer id) {
+			return loginDAO.findById(id);
+     }
 }

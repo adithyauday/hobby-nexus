@@ -2,21 +2,12 @@ package au.usyd.nexus.domain;
 
 import java.io.Serializable;
 import java.sql.Blob;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 
 @Entity
 @Table(name="user")
@@ -35,7 +26,14 @@ public class User implements Serializable {
 	@Column private String location;
 	@Column private Blob photo;
 	
-
+	public User() {}
+	
+	public User(String user_name, String email, String password) {
+		this.user_name = user_name;
+		this.email = email;
+		this.password = password;
+	}
+	
 	public Blob getPhoto() {
 		return photo;
 	}
@@ -91,11 +89,13 @@ public class User implements Serializable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
-
-
 	
-	
-
-	
+	@Override
+	public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("ID: " + user_id + ";");
+        buffer.append("Name: " + user_name + ";");
+        buffer.append("Email Address: " + email);
+        return buffer.toString();
+	}
 }

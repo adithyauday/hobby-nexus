@@ -1,22 +1,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page isELIgnored="false"%>
 <html>
 <head>
-	<title>Home</title>
+	<title>User Profile</title>
 	
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
-	<link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
+	<link rel="stylesheet" href="<c:url value="/resources/css/profile.css"/>">
 </head>
 <body>
 	<!-- include header -->
 	<jsp:include page="header.jsp" />
 	<div class="godown-60" id="godown"></div>
-	<h1>
-		Welcome to Hobby Nexus! 
-	</h1>
-	
-	<P>  The time on the server is ${serverTime}. </P>
+	<div class=" main-container pl-4 pt-4">
+		<h2> Welcome To Hobby Nexus </h2>
+		<c:if test="${user != null}">
+		<h2> Hi, ${user.user_name} </h2>
+		</c:if>
+		<P >  The time on the server is ${serverTime}. </P>
 	
 	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:60px;"></div>
+	</div>
+	
 </body>
 </html>

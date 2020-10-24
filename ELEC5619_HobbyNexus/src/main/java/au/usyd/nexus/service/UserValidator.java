@@ -19,20 +19,23 @@ public class UserValidator implements Validator {
         return User.class.equals(aClass);
     }
 
+    
     @Override
     public void validate(Object o, Errors errors) {
         User user = (User) o;
-
+        User duplicateUser = userAuthService.findByEmail(user.getEmail());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
         if (user.getEmail().length() > 40) {
+        	System.out.println("Username got rejected");
             errors.rejectValue("email", "Size.userForm.email");
         }
-        if (userAuthService.findByEmail(user.getEmail()) != null) {
+        if (duplicateUser != null && duplicateUser.getUser_id()!=user.getUser_id() ) {
+        	System.out.println("Email got rejected");
             errors.rejectValue("email", "Duplicate.userForm.email");
         }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+        
+        if (user.getPassword()!=null && (user.getPassword().length() < 8 || user.getPassword().length() > 32)) {
+        	System.out.println("Password got rejected");
             errors.rejectValue("password", "Size.userForm.password");
         }
 
