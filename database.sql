@@ -137,3 +137,63 @@ INSERT INTO `user_hobby_may` VALUES ('2', '1002', '1', '1');
 INSERT INTO `user_hobby_may` VALUES ('3', '1003', '1', '1');
 INSERT INTO `user_hobby_may` VALUES ('4', '1004', '1', '1');
 INSERT INTO `user_hobby_may` VALUES ('5', '1005', '1', '1');
+
+-- ----------------------------
+-- Table structure for event
+-- ----------------------------
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE `event` (
+  `event_id` int(11) NOT NULL,
+  `hobby_id` int(11) NOT NULL,
+  `event_name` varchar(128) DEFAULT NULL,
+  `event_desc` varchar(2000) DEFAULT NULL,
+  `skill_level_limit` int,
+  `number_limit` int,
+  `attandance` int,
+  `location` varchar(1024) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `event_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`event_id`),
+  KEY `user_id` (`hobby_id`),
+  CONSTRAINT `event_ibfk_1` FOREIGN KEY (`hobby_id`) REFERENCES `hobby` (`hobby_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of event
+-- ----------------------------
+
+INSERT INTO `event` VALUES ('1', '1', 'listen-read-discuss strategy', 'There are some strateies for improving the reading skills for beginners.', '1','10','3','123 Timber Ridge Road', '2019-10-22 00:00:00', '2019-10-24 12:00:00');
+INSERT INTO `event` VALUES ('2', '2', 'Blue Mountains Photography Day Tour', 'Take a small tour bus for a day trip around the Blue Mountains, including the Three Sisters and surrounding cities.','1', '12','3','500 george street', '2019-10-23 00:00:00', '2019-10-25 06:00:00');
+INSERT INTO `event` VALUES ('3', '3', 'yoga in Watsons bay', 'A yoga activity will be held in watsons bay this Saturday. I hope that friends who have time will participate actively.', '1','10','1','295 Rocky Road', '2019-10-24 00:00:00', '2019-10-26 06:00:00');
+
+
+-- ----------------------------
+-- Table structure for user_event_map
+-- ----------------------------
+DROP TABLE IF EXISTS `user_event_map`;
+CREATE TABLE `user_event_map` (
+  `user_event_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `event_id` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+
+  CONSTRAINT `user_event_map_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `user_event_map_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`),
+  PRIMARY KEY (`user_event_id`)	
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_event_map
+-- ----------------------------
+
+
+INSERT INTO `user_event_map` VALUES ('1001', '1001', '1', '2019-10-22 00:00:00');
+INSERT INTO `user_event_map` VALUES ('1002', '1002', '1', '2019-10-22 00:00:00');
+INSERT INTO `user_event_map` VALUES ('1003', '1003', '1', '2019-10-22 00:00:00');
+INSERT INTO `user_event_map` VALUES ('1004', '1001', '2', '2019-10-23 00:00:00');
+INSERT INTO `user_event_map` VALUES ('1005', '1002', '2', '2019-10-23 00:00:00');
+INSERT INTO `user_event_map` VALUES ('1006', '1003', '2', '2019-10-23 00:00:00');
+INSERT INTO `user_event_map` VALUES ('1007', '1004', '3', '2019-10-24 00:00:00');
+
+
+
