@@ -36,7 +36,7 @@
 			<form action="editProfile" method="post">
 				<button type="submit" name="your_name" value="your_value" class="btn-link">
 					<span class="oi oi-person"></span> 
-					User Profile
+					${user.user_name}
 				</button>
 			</form>
 			

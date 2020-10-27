@@ -36,7 +36,7 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/register", method = {RequestMethod.GET, RequestMethod.POST})
 	public String register(Model model) {
 		model.addAttribute("userForm", new User());
 		model.addAttribute("loginForm", new User());
