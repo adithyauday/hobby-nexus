@@ -1,9 +1,7 @@
-console.log("Map.js is read")
 
 let map, infoWindow;
 
-console.log("Map.js is read")
-
+var userPos;
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -34.397, lng: 150.644 },
@@ -20,6 +18,7 @@ function initMap() {
           lng: position.coords.longitude
         };
         console.log(pos);
+        userPos = pos;
         infoWindow.setPosition(pos);
         infoWindow.setContent("You are here");
         infoWindow.open(map);
