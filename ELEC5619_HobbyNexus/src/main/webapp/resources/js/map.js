@@ -1,4 +1,8 @@
+console.log("Map.js is read")
+
 let map, infoWindow;
+
+console.log("Map.js is read")
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -62,7 +66,7 @@ function initMap() {
       type: "info"
     }
   ];
-
+ 
   //Auto adjust zoom based on markers
   var bounds = new google.maps.LatLngBounds();
 

@@ -3,8 +3,7 @@
 <html>
 <head>
 	<title>User Profile</title>
-	
-	<script src="<c:url value="/resources/js/map.js"/>" ></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/map.js"/>"></script> 
 	<link rel="stylesheet" href="<c:url value="/resources/css/profile.css"/>">
 </head>
 <body>
@@ -18,8 +17,10 @@
 		</c:if>
 		<P >  The time on the server is ${serverTime}. </P>
 	
-	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:60px;"></div>
+	<div id="map" style="margin:auto;height:60%;width:70%;border-radius:60px;margin-bottom: 50px;"></div>
 	</div>
 	
+	
 </body>
+
 </html>
