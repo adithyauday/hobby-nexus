@@ -1,5 +1,6 @@
 package au.usyd.nexus.service;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +40,8 @@ public class EventService{
 		params.put("event_id", event_id);
 		return EventDao.findList(hql, params);
 	}
+	
+	
 	
 	public Event getEvent(Integer event_id) {
 		return EventDao.get(event_id, Event.class);

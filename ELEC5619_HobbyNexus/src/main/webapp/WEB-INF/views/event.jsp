@@ -24,7 +24,6 @@
      </div>
  	
  	<div class="ne-hobby-name">
-
           <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">			
           <ul class="section-nav" id="members">
 			<c:forEach var="obj" items="${users}">

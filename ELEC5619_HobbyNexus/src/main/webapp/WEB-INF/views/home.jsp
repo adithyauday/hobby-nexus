@@ -43,7 +43,7 @@
 		  </div>
 		  <div class="grid-item2">
 		  	<img class ="pb-3" width="260" height="200" src="<c:url value="/resources/images/event.jpg"/>"  /> <br>
-		  	Events<br>
+		  	<a href='/nexus/eventlist'>Events</a><br>
 		  	<p class="desc">Find and participate in local events and meet your fellow hobby enthusiasts!</p>
 		  </div>
 		</div>
