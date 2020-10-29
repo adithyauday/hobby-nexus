@@ -1,18 +1,16 @@
-	package au.usyd.nexus.dao;
+package au.usyd.nexus.dao;
 
-import org.springframework.stereotype.Component; 
-import org.springframework.stereotype.Repository;
-
-import au.usyd.nexus.domain.User;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Query;
-import java.util.List;
+import org.springframework.stereotype.Repository;
+
+import au.usyd.nexus.domain.User;
 
 @Repository("loginDAO")
 public class LoginDAO{
