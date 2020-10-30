@@ -10,8 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+
 
 @Entity
+@Indexed
 @Table(name="hobby")
 public class Hobby implements Serializable {
 
@@ -20,6 +24,7 @@ public class Hobby implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column private int hobby_id;
+	@Field
 	@Column private String hobby_name;
 	@Column private String hobby_desc;
 	@Column private Date create_time;

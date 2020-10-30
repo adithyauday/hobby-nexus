@@ -20,11 +20,11 @@
           
       </div>
 	  <div class="collapse navbar-collapse" id="myNavbar">
-		  <form class="mx-2 my-auto d-inline w-100">
+		  <form class="mx-2 my-auto d-inline w-100" action="search" method="post">
 		   <div class="input-group">
-		      <input type="text" class="form-control" placeholder="Search">
+		      <input type="text" class="form-control" placeholder="Search" name = "searchText">
 		       <span class="input-group-append">
-		       	<button class="btn btn-outline-secondary" type="button">Search</button>
+		       	<input type="submit" value="Search" name = "searchButton"/>
 		       </span>
 		    </div>
 		  </form>
