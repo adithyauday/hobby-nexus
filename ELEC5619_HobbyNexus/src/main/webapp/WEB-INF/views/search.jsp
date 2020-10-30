@@ -20,7 +20,7 @@
 <br>
 <br>
 <br>
-<div class="container pt-3">
+<div class="container pt-3 col-sm-8">
 <c:if test="${!empty userList}">
 	<h6>Search Results for ${searchedText}</h6>
 </c:if>
