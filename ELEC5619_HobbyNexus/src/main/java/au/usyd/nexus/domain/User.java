@@ -9,7 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+
 @Entity
+@Indexed
 @Table(name="user")
 public class User implements Serializable {
 
@@ -18,7 +22,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column private int user_id;
-	
+	@Field
 	@Column private String user_name;
 	@Column private String user_type;
 	@Column private String password;
