@@ -13,21 +13,36 @@
 </head>
 <body>
 	<div class="container bs-docs-container" style="padding-top:100px;">
- 	<div class="ne-hobby-name">
- 	<jsp:include page="header.jsp" />
- 	 <p>Event name:    ${event.event_name }</p>
-     <p>Event Details: ${event.event_desc}</p>
-     <p>Skill of limit: ${event.skill_level_limit}</p>
-     <p>number of limit: ${event.number_limit}</p>
-     <p>event date: ${event.event_date}</p>
-     <p>attendance : ${event.attandance}</p>
-     </div>
  	
- 	<div class="ne-hobby-name">
-          <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">			
-          <ul class="section-nav" id="members">
-			<c:forEach var="obj" items="${users}">
-			<li class="toc-entry toc-h2" ><a href="javascript:openDetail('ne-user-${obj.user_id}')"><img alt="" width="20px" height="20px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user_id }&type=user">&nbsp;&nbsp;&nbsp;${obj.user_name}</a></li>
+ 	<jsp:include page="header.jsp" />
+ 	<div style="padding-top:100px;"><h3>The Detail of the Event</h3></div><br>
+ 	<div>
+ 	<table class="ne-hobby-article" style="padding-top:100px;" font-size:"16px">
+ 	<tr>
+		<th>Event name: </th>
+		<td>${event.event_name }</td>
+	</tr>
+	<tr>
+		<th>Event Description: </th>
+		<td> ${event.event_desc }</td>
+	</tr>
+	<tr>
+		<th>Skill of limit: </th>
+		<td> ${event.skill_level_limit }</td>
+	</tr>
+	<tr>	
+		<th>Number of limit: </th>
+		<td> ${event.number_limit }</td>
+ 	</tr>
+ 	<tr>	
+		<th>event date: </th>
+		<td> ${event.event_date }</td>
+ 	</tr>
+ 	 <tr>	
+		<th>Attendance: </th>
+		<td>
+		 <c:forEach var="obj" items="${users}">
+			<a href="javascript:openDetail('ne-user-${obj.user_id}')">&nbsp;&nbsp;&nbsp;<img alt="" width="20px" height="20px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user_id }&type=user">&nbsp;&nbsp;&nbsp;${obj.user_name}</a>
 			<div style="display:none" class="ne-user-${obj.user_id}">
 				<img alt="" width="90px" height="100px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user_id}&type=user">&nbsp;&nbsp;&nbsp;
 				<dl>
@@ -36,13 +51,21 @@
 				<dt>location:${obj.location }</dt>
 				</dl>
 			</div>
-			</c:forEach>
-			</ul>
-          </nav>
-
-        
-      </div>
+		</c:forEach></td>
+		
+ 	</tr>
+ 	
+ 	</table>
+ 	</div>
+ 	<div>
+ 	<a href="/nexus/eventlist">
+ 	<input type="button" value="Back" style="float:410px;">
+ 	</a>
+ 	</div>
+ 	
     </div>
+    
+
 
         
       
