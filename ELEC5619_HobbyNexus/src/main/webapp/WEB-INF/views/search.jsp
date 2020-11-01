@@ -29,11 +29,11 @@
 	<div class="container-fluid">	
 	<div class="col-sm-3"></div>
 	<div class="card" style="width:400px">
-		<ul class="list-group">
+		<div class="list-group">
 			<c:forEach items="${userList}" var="user">
-      			<li class="list-group-item">${user.user_id} ${user.user_name}</li>  			
+      			<a href="/nexus/viewProfile?user_id=${user.user_id}" class="list-group-item list-group-item-action">${user.user_id} ${user.user_name}</a>  			
     		</c:forEach>
-		</ul>
+		</div>
 	</div>
 	</div>
 </c:if>
@@ -43,11 +43,11 @@
 	<div class="container-fluid">	
 	<div class="col-sm-3"></div>
 	<div class="card" style="width:400px">
-		<ul class="list-group">
+		<div class="list-group">
 			<c:forEach items="${hobbyList}" var="hobby">
-      			<li class="list-group-item">${hobby.hobby_id} ${hobby.hobby_name}</li>  			
+      			<a href="/nexus/hobby?hobby_id=${hobby.hobby_id}" class="list-group-item list-group-item-action">${hobby.hobby_id} ${hobby.hobby_name}</a>  			
     		</c:forEach>
-		</ul>
+		</div>
 	</div>
 	</div>
 </c:if>
