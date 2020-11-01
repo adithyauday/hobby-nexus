@@ -1,6 +1,10 @@
 package au.usyd.nexus.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.sql.Blob;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,6 +19,7 @@ import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 
 import au.usyd.nexus.domain.Hobby;
+import au.usyd.nexus.domain.UserhobbyMay;
 
 @Repository
 public class HobbyDAO {
@@ -62,6 +67,24 @@ public class HobbyDAO {
 		session.update(h);
 		session.flush();		
 		session.close();
+	}
+
+
+	public Serializable save(Hobby hobby, InputStream in) throws IOException {
+		Session session = sessionFactory.openSession();
+        Blob blob =session.getLobHelper().createBlob(in, in.available());
+        hobby.setPhoto(blob);
+        hobby.setCreate_time(new Date());
+        Serializable s=  session.save(hobby);
+        session.close();
+        return s;
+	}
+
+
+	public void save(Object obj) {
+		Session session = sessionFactory.openSession();
+		session.save(obj);
+        session.close();		
 	}
 
 }

@@ -1,22 +1,31 @@
 package au.usyd.nexus.web;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import au.usyd.nexus.domain.Article;
 import au.usyd.nexus.domain.Hobby;
 import au.usyd.nexus.domain.User;
+import au.usyd.nexus.domain.UserhobbyMay;
 import au.usyd.nexus.service.HobbyService;
 
 
@@ -42,14 +51,7 @@ public class HobbyController {
 	@RequestMapping("/imgDisplay")
 	public void imgDisplay(HttpServletResponse response,HttpServletRequest request,Integer id,String type) throws IOException {
 		
-/*        InputStream in = new FileInputStream("D:/4399/read.jpg");        
-        byte[] b = new byte[in.available()];
-        in.read(b);
-        in.close();
-      
-        Hobby h=hobbyService.getHobby(1);
-        h.setPhoto( Hibernate.createBlob(b));
-        hobbyService.update(h);*/
+
         Blob b=null;
         if("user".equals(type)){
         	User user=hobbyService.getUser(id);
@@ -78,4 +80,45 @@ public class HobbyController {
         response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
 	
 	}
+	
+	/**
+	 * 
+	* @Description: save hobby
+	* @return   
+	* @throws
+	 */
+	@RequestMapping("/savehobby")
+	@ResponseBody
+	public Map<String, Object> savehobby(@RequestParam("file") MultipartFile file,Hobby hobby,HttpSession session){
+		Map<String, Object> result = new HashMap<String, Object>();
+		User user= (User) session.getAttribute("user");
+		if(user==null){
+			result.put("result", false);
+			result.put("msg", "Please Sign in");
+			return result;
+		}
+		if (file.isEmpty()) {
+			result.put("result", false);
+			result.put("msg", "Picture cannot be empty");
+			return result;
+		}
+		try {
+			InputStream in = file.getInputStream();
+			int hobby_id=  (Integer) hobbyService.save(hobby,in);
+			UserhobbyMay uhm=new UserhobbyMay();
+			uhm.setHobby_id(hobby_id);
+			uhm.setUser_id(user.getUser_id());
+			uhm.setSkill_level(1);
+			hobbyService.save(uhm);
+			result.put("result", true);
+			result.put("msg", "Success");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	
+
 }
+

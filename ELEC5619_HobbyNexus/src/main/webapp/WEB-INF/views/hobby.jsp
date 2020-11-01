@@ -9,6 +9,10 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/hobby.css"/>">
 	 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
 	 <script type="text/javascript" src="<c:url value="/resources/js/hobby.js"/>"></script>
+	 
+<style type="text/css">
+
+</style>
 </head>
 <body>
 	<!-- include header -->
@@ -16,7 +20,8 @@
 	<div class="container bs-docs-container" style="padding-top:100px;">
  	<div class="ne-hobby-name">
  	<img alt="" width="100px" height="100px" src="<%=request.getContextPath()%>/imgDisplay?id=${hobby.hobby_id }&type=hobby">
- 	<h3 >${hobby.hobby_name }</h3></div>
+ 	<div class="hobbyname"><h3 >${hobby.hobby_name }</h3><a class="btn  btn-default" href="#" role="button"  data-toggle="modal" data-target="#myModal">Create Hobby</a></div>
+ 	</div>
       <div class="row">
         <div class="col-md-9" role="main">
 				<div class="ne-hobby-item">
@@ -65,5 +70,68 @@
         
       </div>
     </div>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+   
+        <div class="modal-header">
+          <h4 class="modal-title">Create Hobby</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+   
+        <div class="modal-body">
+            <form enctype="multipart/form-data" method="post" id="form1" name="form1" >
+
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Hobby Name:</label>
+            <input type="text" class="form-control" id="hobbyname">
+          </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Hobby Name:</label>
+              <input id="file-fr"  style="display: block;" name="file" type="file" multiple>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Description:</label>
+            <textarea class="form-control"  id="description"></textarea>
+          </div>
+    </form>
+
+   
+        <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="sub()">Save message</button>
+        </div>
+   
+      </div>
+    </div>
+  </div>
+  
+</div>   
+
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script type="text/javascript">
+function sub(){
+	var description=$("#description").val();
+	var hobbyname=$("#hobbyname").val();
+	$("#form1").ajaxSubmit({
+		url:'<%=request.getContextPath()%>/savehobby?hobby_name='+hobbyname+'&hobby_desc='+description,
+		dataType:'json',
+		type:'post',
+		success:function(res){
+			if(res.result){
+				alert(res.msg);
+				$('#myModal').modal('hide');
+				location.reload();
+			}else{
+				alert(res.msg);
+			}
+		}
+		
+		
+	});
+}
+
+</script>
 </body>
 </html>

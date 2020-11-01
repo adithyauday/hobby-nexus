@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
+import java.util.Collection;
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
@@ -13,8 +13,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
-
-import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
 
 import au.usyd.nexus.domain.Event;
 
@@ -55,7 +53,6 @@ public class EventDAO{
 		return list.isEmpty() ? null : list.get(0);
 	}
 	
-
 	
 	public void update(Event h) {
 		Session session = sessionFactory.openSession();

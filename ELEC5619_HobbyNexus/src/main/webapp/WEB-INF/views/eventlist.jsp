@@ -13,26 +13,45 @@
 	<div class="godown-60" id="godown"></div>
 	<div class=" main-container pl-4 pt-4">
 	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:60px;"></div>
+		
 		<c:if test="${user != null}">
 		
 		<div>
 		<h3>The Upcoming events</h3>
-		<a href="/nexus/event?event_id=1"> ${event.event_name} Listen-read-discuss strategy </a>
+		<form>
+		<table border="1px" cellspacing="0" cellpadding="10">
+		<tr>
+			<th>Event Number</th>
+			<th>Event Name</th>
+			<th>Event Date</th>
+		</tr>
+		<c:forEach var="obj" items="${events}"  varStatus="s" >
+		<tr>
+			<td><c:out value="${obj.event_id}"></c:out></td>
+			<td><a href="/nexus/event?event_id=${obj.event_id}"><c:out value ="${ obj.event_name}"></c:out></a></td>
+			<td><c:out value="${obj.event_date}"></c:out></td>
+		</tr>
 		
-		<br><img src="<%=request.getContextPath()%>/resources/images/read.png" width="150" height="150" />
-		<br>
-		<br><a href="/nexus/event?event_id=2">  Blue Mountains Photography Day Tour</a>
-		<br><img src="<%=request.getContextPath()%>/resources/images/bmt.jpg" width="150" height="150" />
-		<br>
-		<br><a href="/nexus/event?event_id=3">Yoga in Watsons bay</a>
-		<br><img src="<%=request.getContextPath()%>/resources/images/yoga.jpg" width="150" height="150" />
+		</c:forEach>
+		<tr>
+			<td colspan="3">
+				<input type="submit" value="ADD">
+			</td>
+		</tr>
+		</table>
+		</form>
+<!-- 		<a href="/nexus/event?event_id=1">  Listen-read-discuss strategy </a> -->
+		
+<%-- 		<br><img src="<%=request.getContextPath()%>/resources/images/read.png" width="150" height="150" /> --%>
+<!-- 		<br> -->
+<!-- 		<br><a href="/nexus/event?event_id=2">  Blue Mountains Photography Day Tour</a> -->
+<%-- 		<br><img src="<%=request.getContextPath()%>/resources/images/bmt.jpg" width="150" height="150" /> --%>
+<!-- 		<br> -->
+<!-- 		<br><a href="/nexus/event?event_id=3">Yoga in Watsons bay</a> -->
+<%-- 		<br><img src="<%=request.getContextPath()%>/resources/images/yoga.jpg" width="150" height="150" /> --%>
 	</div>
-	<div>
-	<c:forEach var="item" items="${event} ">
-	${item}
-	</c:forEach>
-	</div>
-	</c:if>
+	
+	</c:if> 
 	
 	</div>
 	

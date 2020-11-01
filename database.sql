@@ -12,6 +12,7 @@ File Encoding         : 65001
 Date: 2020-10-23 10:38:21
 */
 
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -19,11 +20,11 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `hobby`;
 CREATE TABLE `hobby` (
-  `hobby_id` int(11) NOT NULL,
+  `hobby_id` int(11) NOT NULL AUTO_INCREMENT,
   `hobby_name` varchar(128) DEFAULT NULL,
   `hobby_desc` varchar(2000) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `photo` blob,
+  `photo` longblob,
   PRIMARY KEY (`hobby_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -45,7 +46,7 @@ CREATE TABLE `user` (
   `password` varchar(128) DEFAULT NULL,
   `email` varchar(1024) DEFAULT NULL,
   `location` varchar(1024) DEFAULT NULL,
-  `photo` blob,
+  `photo` longblob,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -118,7 +119,7 @@ INSERT INTO `comment` VALUES ('4', '1003', '2', 'Comment title..', 'After readin
 -- ----------------------------
 DROP TABLE IF EXISTS `user_hobby_may`;
 CREATE TABLE `user_hobby_may` (
-  `user_hobby_id` int(11) NOT NULL,
+  `user_hobby_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `hobby_id` int(11) DEFAULT NULL,
   `skill_level` int(11) DEFAULT NULL,

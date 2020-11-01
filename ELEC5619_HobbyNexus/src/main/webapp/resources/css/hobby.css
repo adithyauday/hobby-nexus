@@ -3,12 +3,7 @@
     padding: 15px 0px 25px  0px;
     position: relative;
 }
-.ne-hobby-name h3{
-    position: absolute;
-    display: inline-block;
-    bottom: 15px;
-    left: 115px;
-}
+
 .ne-hobby-article {
    
     padding: 25px 15px 15px;
@@ -45,4 +40,29 @@
     padding-top: 2px;
     padding-bottom: 10px;
 
+}
+
+.ne-hobby-name .hobbyname {
+    position: absolute;
+    display: inline-block;
+    bottom: 20px;
+    left: 115px;
+}
+.ne-hobby-name h3{
+/*     position: absolute;
+    display: inline-block;
+    bottom: 15px;
+    left: 115px; */
+    display: inline-block;
+}
+.ne-hobby-name .btn{
+/*     position: absolute;
+    display: inline-block;
+    bottom: 15px;
+    left: 115px; */
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    color: #333;
+    border-color: #8c8c8c;
 }

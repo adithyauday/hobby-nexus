@@ -1,10 +1,11 @@
 package au.usyd.nexus.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.persistence.Column;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import au.usyd.nexus.dao.HobbyDAO;
 import au.usyd.nexus.domain.Article;
 import au.usyd.nexus.domain.Hobby;
 import au.usyd.nexus.domain.User;
+import au.usyd.nexus.domain.UserhobbyMay;
 
 
 @Component
@@ -43,6 +45,15 @@ public class HobbyService {
 
 	public User getUser(Integer id) {
 		return HobbyDao.get(id, User.class);
+	}
+
+	public Serializable save(Hobby hobby, InputStream in) throws IOException {
+		return HobbyDao.save(hobby,in);
+	}
+
+	public void save(UserhobbyMay uhm) {
+		HobbyDao.save(uhm);
+		
 	}
 
 
