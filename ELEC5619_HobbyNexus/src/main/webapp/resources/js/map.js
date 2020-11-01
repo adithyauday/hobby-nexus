@@ -69,13 +69,23 @@ function initMap() {
   //Auto adjust zoom based on markers
   var bounds = new google.maps.LatLngBounds();
 
-  for (var i = 0; i < features.length; i++) {
+ for (var i = 0; i < features.length; i++) {
+    const contentString = 
+          "<h2>Name</h2>"+
+          "<h3>Hobbies</h3>"+
+          "<p>Description</p>"
+    const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    });
     bounds.extend(features[i].position);
     var marker = new google.maps.Marker({
       position: features[i].position,
       icon: image,
       map: map
     });
+    marker.addListener("click", () => {
+    infowindow.open(map, marker);
+  });
   }
   map.fitBounds(bounds);
 }
