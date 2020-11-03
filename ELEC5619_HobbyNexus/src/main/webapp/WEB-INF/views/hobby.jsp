@@ -10,9 +10,6 @@
 	 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
 	 <script type="text/javascript" src="<c:url value="/resources/js/hobby.js"/>"></script>
 	 
-<style type="text/css">
-
-</style>
 </head>
 <body>
 	<!-- include header -->
@@ -21,7 +18,9 @@
  	<div class="ne-hobby-name">
  	<img alt="" width="100px" height="100px" src="<%=request.getContextPath()%>/imgDisplay?id=${hobby.hobby_id }&type=hobby">
  	<div class="hobbyname"><h3 >${hobby.hobby_name }</h3><a class="btn  btn-default" href="#" role="button"  data-toggle="modal" data-target="#myModal">Create Hobby</a></div>
+ 	
  	</div>
+ 	<p class="hobbydesc">${hobby.hobby_desc }</p>
       <div class="row">
         <div class="col-md-9" role="main">
 				<div class="ne-hobby-item">
@@ -29,7 +28,7 @@
 					<div class="ne-hobby-article" >
 						<dl>
 							<dt style="font-size: 16px;"><a href="javascript:openDetail('ne-user-${obj.user.user_id}')"><img alt="" width="30px" height="30px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user.user_id }&type=user">&nbsp;&nbsp;&nbsp;${obj.user.user_name }</a></dt>
-							<dt style="font-size: 20px;">${obj.title }</dt>
+							<dt style="font-size: 20px;"><a href="<%=request.getContextPath()%>/post?article_id=${obj.artice_id}" style="color: #212529;">${obj.title }</a></dt>
 							<dd style="font-size: 18px;">${obj.content }</dd>
 						</dl>
 						<div class="ne-hobby-comment">
@@ -70,7 +69,7 @@
         
       </div>
     </div>
-  <div class="modal fade" id="myModal">
+<!--   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
    
@@ -107,9 +106,9 @@
     </div>
   </div>
   
-</div>   
+</div>    -->
 
-<script src="http://malsup.github.com/jquery.form.js"></script>
+<%-- <script src="http://malsup.github.com/jquery.form.js"></script>
 <script type="text/javascript">
 function sub(){
 	var description=$("#description").val();
@@ -127,11 +126,9 @@ function sub(){
 				alert(res.msg);
 			}
 		}
-		
-		
 	});
 }
 
-</script>
+</script> --%>
 </body>
 </html>

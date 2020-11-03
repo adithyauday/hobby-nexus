@@ -32,11 +32,16 @@
 		
 			<!--  need to style link -->
 			<c:if test="${user != null}">
-			
-			<form action="editProfile" method="post">
+						<form action="editProfile" method="post">
 				<button type="submit" name="your_name" value="your_value" class="btn-link">
 					<span class="oi oi-person"></span> 
 					${user.user_name}
+				</button>
+			</form>
+			<form >
+				<button type="button" name="your_name" value="your_value" class="btn-link" data-toggle="modal" data-target="#myModal">
+					<span class="oi oi-credit-card"></span> 
+					Create Hobby
 				</button>
 			</form>
 			
@@ -58,4 +63,68 @@
 	 </div>
 	</div>
 </div>
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+   
+        <div class="modal-header">
+          <h4 class="modal-title">Create Hobby</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+   
+        <div class="modal-body">
+            <form enctype="multipart/form-data" method="post" id="form1" name="form1" >
+
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Hobby Name:</label>
+            <input type="text" class="form-control" id="hobbyname">
+          </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Hobby Name:</label>
+              <input id="file-fr"  style="display: block;" name="file" type="file" multiple>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Description:</label>
+            <textarea class="form-control"  id="description"></textarea>
+          </div>
+    </form>
+
+   
+        <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="sub()">Save message</button>
+        </div>
+   
+      </div>
+    </div>
+  </div>
+  
+</div> 
+
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function sub(){
+	var description=$("#description").val();
+	var hobbyname=$("#hobbyname").val();
+	$("#form1").ajaxSubmit({
+		url:'<%=request.getContextPath()%>/savehobby?hobby_name='+hobbyname+'&hobby_desc='+description,
+		dataType:'json',
+		type:'post',
+		success:function(res){
+			if(res.result){
+				alert(res.msg);
+				$('#myModal').modal('hide');
+				location.reload();
+			}else{
+				alert(res.msg);
+			}
+		}
+	});
+}
+
+</script>
 </header>
