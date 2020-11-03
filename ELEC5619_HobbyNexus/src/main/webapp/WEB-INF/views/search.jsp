@@ -5,6 +5,7 @@
 <%@ page session="false" %>
 <html>
 <br>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <head>
 	<title>Search Page</title>
 	<jsp:include page="header.jsp" />
@@ -20,9 +21,11 @@
 <br>
 <br>
 <br>
-<div class="container pt-3 col-sm-8">
+<div class=" main-container">
+<div class="container p-3 col-sm-8">
+
 <c:if test="${!empty userList}">
-	<h6>Search Results for ${searchedText}</h6>
+	<h6>Search Results for <code> ${searchedText}</code></h6>
 </c:if>
 <h5>People</h5>
 <c:if test="${!empty userList}">
@@ -31,7 +34,10 @@
 	<div class="card" style="width:400px">
 		<div class="list-group">
 			<c:forEach items="${userList}" var="user">
-      			<a href="/nexus/viewProfile?user_id=${user.user_id}" class="list-group-item list-group-item-action">${user.user_id} ${user.user_name}</a>  			
+      			<a href="/nexus/viewProfile?user_id=${user.user_id}" class="list-group-item list-group-item-action">
+      			<img alt="" width="50px" height="50px" src="<%=request.getContextPath()%>/imgDisplay?id=${user.user_id}&type=user">
+      			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${user.user_name}
+      			 <p class="text-right" style="margin-bottom: 0rem; font-style: italic"><i class='fas fa-map-marker-alt'></i>   ${user.location}</p></a>  			
     		</c:forEach>
 		</div>
 	</div>
@@ -45,12 +51,16 @@
 	<div class="card" style="width:400px">
 		<div class="list-group">
 			<c:forEach items="${hobbyList}" var="hobby">
-      			<a href="/nexus/hobby?hobby_id=${hobby.hobby_id}" class="list-group-item list-group-item-action">${hobby.hobby_id} ${hobby.hobby_name}</a>  			
+      			<a href="/nexus/hobby?hobby_id=${hobby.hobby_id}" class="list-group-item list-group-item-action">
+    		 	<img alt="" width="50px" height="50px" src="<%=request.getContextPath()%>/imgDisplay?id=${hobby.hobby_id }&type=hobby">
+    			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${hobby.hobby_name}
+    			<p class="text-right" style="margin-bottom: 0rem; font-style: italic"><i class='fas fa-calendar-alt'></i>   ${hobby.create_time}</p></a>
     		</c:forEach>
 		</div>
 	</div>
 	</div>
 </c:if>
+</div>
 </div>
 </body>
 </html>
