@@ -18,7 +18,7 @@
 			<div class="row">
 				
 				<div class="col ml-3"> 
-					<img alt="" width="350px" height="270px" src="<%=request.getContextPath()%>/imgDisplay?id=${selected_user.user_id}&type=user">&nbsp;&nbsp;&nbsp;
+					<img alt="User Profile Image" width="350px" height="270px" src="<%=request.getContextPath()%>/imgDisplay?id=${selected_user.user_id}&type=user">&nbsp;&nbsp;&nbsp;
 				</div>
 				
 				<div class="col-7 mr-4 pb-5 ">

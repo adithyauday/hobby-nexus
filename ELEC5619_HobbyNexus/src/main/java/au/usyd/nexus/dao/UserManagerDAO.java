@@ -33,4 +33,11 @@ public class UserManagerDAO {
 		currentSession.merge(existingUser);
 	}
 	
+	public void updateUserImage(User user) {
+		Session currentSession = this.sessionFactory.getCurrentSession();
+		User existingUser = (User) currentSession.get(User.class, user.getUser_id());
+		existingUser.setPhoto(user.getPhoto());
+		currentSession.merge(existingUser);
+	}
+	
 }

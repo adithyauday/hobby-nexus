@@ -34,7 +34,8 @@ public class User implements Serializable {
 	@Column private String password;
 	@Column private String email;
 	@Column private String location;
-	@Column private Blob photo;
+	@Column(columnDefinition = "LONGBLOB") 
+	private Blob photo;
 	
 	public User() {}
 	

@@ -15,18 +15,28 @@
 	<div class=" main-container">
 	  <h2 class ="pageHeading"> Edit Information </h2>
 		
-	  <form:form action="changeUserDetails/${user.user_id}" method="post" modelAttribute="detailsForm" class="form-signin">
-		<div class="container">
+	  <div class="container">
 			<div class="row">
 				
 				<div class="col ml-3"> 
 					<img alt="" width="350px" height="270px" src="<%=request.getContextPath()%>/imgDisplay?id=${user.user_id}&type=user">&nbsp;&nbsp;&nbsp;
-					<br>
-					<!--<form:input type="file" class="form-control-file pt-3" id="blob" path="photo" />-->
+					<form:form action="uploadImage/${user.user_id}" method="post"  enctype="multipart/form-data" class="form-signin">
+						  <div class="pt-3 input-group">
+							  <div class="input-group-prepend">
+							    <button class="btn input-group-text" id="inputGroupFileAddon01">Upload</button>
+							  </div>
+							  <div class="custom-file">
+							    <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
+							      aria-describedby="inputGroupFileAddon01">
+							    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+							  </div>
+							</div>
+					</form:form>
 				</div>
 				
 				<div class="col-7 mr-4 pb-5 ">
-				 
+				 <form:form action="changeUserDetails/${user.user_id}" method="post" modelAttribute="detailsForm" class="form-signin">
+		
 					<div class="row ml-0"> 
 						<label for="fname">Name:</label><br>
   						<form:input class="form-control input-sm" path="user_name" type="text" id="fname" name="fname"  value="${user.user_name}" /><br> 
@@ -44,11 +54,12 @@
 					<div class="row ml-0 pt-4"> 
 						<button class="btn btn-primary">Save Details</button>
 					</div>
+					  </form:form>
 				</div>
 			
 			</div>
 		</div>
-	  </form:form>
+	
 	  
 	  <!--<form:form action="changePass/${user.user_id}" method="post" modelAttribute="passForm" class="form-signin">
 		<div class="container">

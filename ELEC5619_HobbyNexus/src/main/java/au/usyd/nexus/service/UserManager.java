@@ -21,4 +21,8 @@ public class UserManager {
 		userManagerDAO.updateUserDetails(user);
 	}
 	
+	public void updateUserImage(User user) {
+		userManagerDAO.updateUserImage(user);
+	}
+	
 }
