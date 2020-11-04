@@ -157,7 +157,7 @@ CREATE TABLE `event` (
   `create_time` datetime DEFAULT NULL,
   `event_date` datetime DEFAULT NULL,
   PRIMARY KEY (`event_id`),
-  KEY `user_id` (`hobby_id`),
+  KEY `hobby_id` (`hobby_id`),
   CONSTRAINT `event_ibfk_1` FOREIGN KEY (`hobby_id`) REFERENCES `hobby` (`hobby_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
