@@ -61,15 +61,7 @@
  	<a href="/nexus/eventlist">
  	<input type="button" value="Back" style="float:410px;">
  	</a>
- 	</div>
- 	
+ 	</div>	
     </div>
-    
-
-
-        
-      
-    
-
 </body>
 </html>

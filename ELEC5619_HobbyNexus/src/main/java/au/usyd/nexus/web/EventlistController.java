@@ -31,38 +31,20 @@ import au.usyd.nexus.service.HobbyService;
 public class EventlistController {
 
 	@Autowired
-    private EventService eventService;  
-
-//	public void start() {
-//		 
-//		ApplicationContext cxt = new ClassPathXmlApplicationContext("persisence-context.xml");
-//		eventService = (EventService) cxt.getBean("eventService");
-//	}
-
+    private EventService eventService;
 	
-//	@RequestMapping(value="/eventlist",method= {RequestMethod.GET})
-//	public String eventlist(Model model, @RequestParam(value="event_id",required=false,defaultValue="2")int event_id) {
-////		List<User> users=eventService.getMembers(event_id);
-////		model.addAttribute("users", users);
-//		
-//		List<Event> events=eventService.getEvents(event_id);
-//		model.addAttribute("event", events);
-//////		System.out.println(events);
-//////		System.out.println(users);
-////		Event event=eventService.getEvent(event_id);
-////		model.addAttribute("event", event);
-//		
-//		return "eventlist";
-//	}
-//	
-	@RequestMapping(value="/eventlist",method= {RequestMethod.GET})
-	public String eventlist(Model model, @RequestParam(value="event_id",required=false,defaultValue="2")int event_id) {
+	@Autowired
+	private HobbyService hobbyService;
+
+	@RequestMapping(value="/eventlist")
+//	, @RequestParam(value="event_id",required=false,defaultValue="1")int event_id
+	public String eventlist(Model model) {
 //		List<User> users=eventService.getMembers(event_id);
 //		model.addAttribute("users", users);
 		
 		List events = eventService.getAllEvent();
 		model.addAttribute("events",events);
-		System.out.println(events);
+//		System.out.println(events);
 //		List<Event> events=eventService.getEvents(event_id);
 //		model.addAttribute("event", events);
 ////		System.out.println(events);
@@ -72,5 +54,36 @@ public class EventlistController {
 		
 		return "eventlist";
 	}
+	
+	@RequestMapping(value="/addevent",method= RequestMethod.GET)
+	public String eventlistshow(Model model) {	
+
+		List hobbys=eventService.getAllHobby();
+		model.addAttribute("hobbys", hobbys);
+////		System.out.println(events);
+////		System.out.println(users);
+//		Event event=eventService.getEvent(event_id);
+//		model.addAttribute("event", event);
+//		System.out.println(hobbys);
+		return "add";
+	}
+	
+	
+	@RequestMapping(value="/addevent",method= RequestMethod.POST)
+	public String eventlistAdd(Event event) {
+//		List<User> users=eventService.getMembers(event_id);
+//		model.addAttribute("users", users);
+//		System.out.println(event);
+		eventService.save(event);
+//		List<Event> events=eventService.getEvents(event_id);
+//		model.addAttribute("event", events);
+////		System.out.println(events);
+////		System.out.println(users);
+//		Event event=eventService.getEvent(event_id);
+//		model.addAttribute("event", event);
+		
+		return "redirect:/eventlist";
+	}
+//	
 	
 }

@@ -28,8 +28,8 @@ public class Event implements Serializable{
 	@Column private int number_limit;
 	@Column private int attandance;
 	@Column private String location;
-	@Column private Date create_time;
-	@Column private Date event_date;
+	@Column private String create_time;
+	@Column private String event_date;
 	
 	//alt +shift +s ,then click r
 	public int getEvent_id() {
@@ -41,7 +41,7 @@ public class Event implements Serializable{
 	public int getHobby_id() {
 		return hobby_id;
 	}
-	public void setHobby_id(int hobby_id) {
+	public void setHobby_id(Integer hobby_id) {
 		this.hobby_id = hobby_id;
 	}
 	public String getEvent_name() {
@@ -80,16 +80,16 @@ public class Event implements Serializable{
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Date getCreate_time() {
+	public String getCreate_time() {
 		return create_time;
 	}
-	public void setCreate_time(Date create_time) {
+	public void setCreate_time(String create_time) {
 		this.create_time = create_time;
 	}
-	public Date getEvent_date() {
+	public String getEvent_date() {
 		return event_date;
 	}
-	public void setEvent_date(Date event_date) {
+	public void setEvent_date(String event_date) {
 		this.event_date = event_date;
 	}
 	public static long getSerialversionuid() {

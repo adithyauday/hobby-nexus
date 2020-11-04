@@ -1,10 +1,15 @@
 package au.usyd.nexus.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Collection;
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
@@ -15,6 +20,7 @@ import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 
 import au.usyd.nexus.domain.Event;
+import au.usyd.nexus.domain.Hobby;
 
 
 @Repository
@@ -60,5 +66,27 @@ public class EventDAO{
 		session.flush();		
 		session.close();
 	}
+//	private static Integer init_event_id =4;
+//	public Serializable save(Event event, InputStream in) throws IOException {
+//		Session session = sessionFactory.openSession();
+//        Blob blob =session.getLobHelper().createBlob(in, in.available());
+////        event.setPhoto(blob);
+//        
+//        event.setCreate_time(new Date());
+//        event.setEvent_id(init_event_id++);
+//        event.setHobby_id(2);
+//        Serializable s=  session.save(event);
+//        session.close();
+//        return s;
+//	}
+
+
+	public void save(Object obj) {
+		Session session = sessionFactory.openSession();
+		session.save(obj);
+        session.close();		
+	}
+	
+	
 	
 }

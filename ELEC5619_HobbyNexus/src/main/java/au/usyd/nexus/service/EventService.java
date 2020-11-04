@@ -1,6 +1,9 @@
 package au.usyd.nexus.service;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,11 +14,18 @@ import javax.annotation.Resource;
 import javax.persistence.Column;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.util.HtmlUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+
 
 import au.usyd.nexus.dao.EventDAO;
 import au.usyd.nexus.dao.HobbyDAO;
@@ -24,13 +34,17 @@ import au.usyd.nexus.domain.Hobby;
 import au.usyd.nexus.domain.User;
 import au.usyd.nexus.domain.Event;
 
+
+
 @Component
 @Transactional
 public class EventService{
 	
 	@Autowired
 	private EventDAO EventDao;
-
+	
+	@Autowired
+	private HobbyDAO HobbyDao;
 	
 	public List<User> getMembers(int event_id) {
 		String hql="select user from User as user,Usereventmap as uem where uem.user_id=user.user_id and event_id=:event_id";
@@ -62,14 +76,80 @@ public class EventService{
 		return EventDao.get(id, User.class);
 	}
 	
-
+	public Hobby getHobbyId(Integer hobby_id) {
+		return HobbyDao.get(hobby_id, Hobby.class);
+	}
 	
+	
+	private static Integer init_event_id =4;
+	private Map<Integer, Event> addNewEvent =null;
 	@Resource
 	private SessionFactory sessionFactory;
 	
-	public void save(Event event) {
-		sessionFactory.getCurrentSession().persist(event);
+	
+	
+	public void save(Event event){
+		
+//		Session sess = sessionFactory.openSession();
+//		Transaction tx = sess.beginTransaction();
+//		addNewEvent =new HashMap<Integer, Event>();
+		Event even =new Event();
+		even.setEvent_id(4);
+		even.setHobby_id(2);
+		even.setEvent_name(event.getEvent_name());
+		even.setEvent_desc(event.getEvent_desc());
+		even.setSkill_level_limit(event.getSkill_level_limit());
+		even.setNumber_limit(event.getNumber_limit());
+		even.setAttandance(1);
+		even.setLocation(event.getLocation());
+		even.setEvent_date(event.getEvent_date());
+		even.setCreate_time("2020-11-04 12:34:50");
+		System.out.println(even.getEvent_id());
+//		sess.save(even);
+//		 tx.commit();
+//		 sess.close();
+//		 sessionFactory.close();
+//		addNewEvent.put(event.getEvent_id(),event);
+//
+//		System.out.println(addNewEvent);
+//		sessionFactory.getCurrentSession();
+
+		
+		
+		
+//		session.save(event);
+		//创建session对象
+		
+//
+//		try {
+//			session =HibernateSessionFactory.currentSession();
+//			Event even =new Event();
+//			even.setEvent_id(init_event_id++);
+//			even.setHobby_id(2);
+//			even.setEvent_name(event.getEvent_name());
+//			even.setEvent_desc(event.getEvent_desc());
+//			even.setSkill_level_limit(event.getSkill_level_limit());
+//			even.setNumber_limit(event.getNumber_limit());
+//			even.setAttandance(1);
+//			even.setLocation(event.getLocation());
+//			even.setCreate_time(event.getCreate_time());
+//			even.setCreate_time("2020-11-04 12:34:50");
+//			 
+//		    tx.commit();   
+//		}   
+//		catch (Exception e) {   
+//		    if (tx!=null) tx.rollback();   
+//		    throw e;   
+//		}   
+//		finally {   
+//			HibernateUtils.closeSession(session);   
+//		}  
+		
 	}
+//	
+//	public Serializable save(Event event, InputStream in) throws IOException {
+//		return EventDao.save(event,in);
+//	}
 	
 	public void updates(Event event) {
 		sessionFactory.getCurrentSession().merge(event);
@@ -80,8 +160,16 @@ public class EventService{
 		String hql = "from Event as e ";
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery(hql);
-		list= query.list(); //返回的是一个集dao合
+		list= query.list(); //return a list
 		return list;
 	}
-
+	
+	public List getAllHobby() {
+		List list = new ArrayList();
+		String hql = "from Hobby as h ";
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql);
+		list= query.list(); //return a list
+		return list;
+	}
 } 
