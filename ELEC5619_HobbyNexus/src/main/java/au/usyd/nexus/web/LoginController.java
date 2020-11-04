@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,17 +26,33 @@ import au.usyd.nexus.service.UserValidator;
 public class LoginController {
 	
 	@Autowired
-	UserRegistrationService urs;
+	private UserRegistrationService urs;
 	
 	@Autowired
     private UserAuthService authenticateService;         
 
     @Autowired
     private UserValidator userValidator;
+    
+    private static final PasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 	
 	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
+	//for testing purposes
+	public void setUserAuthService(UserAuthService uas) {
+		this.authenticateService = uas;
+	}
+	
+	//for testing purposes
+	public void setUserValidator(UserValidator validator) {
+		this.userValidator = validator;
+	}
+	
+	//for testing purposes
+	public void setUserRegistraionService(UserRegistrationService urs) {
+		this.urs = urs;
+	}
 	
 	@RequestMapping(value = "/register", method = {RequestMethod.GET, RequestMethod.POST})
 	public String register(Model model) {
@@ -44,7 +62,7 @@ public class LoginController {
 	}
 	
 	
-	// Checks if the user credentials are valid or not.
+	// Checks if the user credentials are valid or not. For LOGIN
     @RequestMapping(value = "/validate")
     public String validate(@ModelAttribute("loginForm") User loginForm, BindingResult bindingResult, @ModelAttribute("userForm") User userForm, Model model, HttpSession session) {
     	logger.info("User validating...");
@@ -61,6 +79,7 @@ public class LoginController {
         return "redirect:home";
     }
     
+    //For Registration
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, @ModelAttribute("loginForm") User loginForm, Model model, HttpSession session) {
     	logger.info("In registration");

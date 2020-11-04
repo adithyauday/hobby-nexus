@@ -34,10 +34,10 @@ public class UserValidator implements Validator {
             errors.rejectValue("email", "Duplicate.userForm.email");
         }
         
-        if (user.getPassword()!=null && (user.getPassword().length() < 8 || user.getPassword().length() > 32)) {
-        	System.out.println("Password got rejected");
-            errors.rejectValue("password", "Size.userForm.password");
-        }
+//        if (user.getPassword()!=null && (user.getPassword().length() < 8 || user.getPassword().length() > 32)) {
+//        	System.out.println("Password got rejected");
+//            errors.rejectValue("password", "Size.userForm.password");
+//        }
 
     }
 	

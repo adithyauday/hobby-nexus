@@ -19,7 +19,16 @@ public class UserAuthService {
       
        public boolean checkLogin(String email, String userPassword){
               System.out.println("In Service class...Check Login");
-              return loginDAO.checkLogin(email, userPassword);
+              boolean result = false;
+              
+              //if LoginDAO is null
+              try {
+            	  result= loginDAO.checkLogin(email, userPassword);
+              } catch (NullPointerException e) {
+                  System.out.print("LoginDAO not initialized");
+              }
+              
+              return result;
        }
        
        public User findByEmail(String email) {
