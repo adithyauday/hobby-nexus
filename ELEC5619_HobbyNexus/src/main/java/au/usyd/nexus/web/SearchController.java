@@ -23,6 +23,7 @@ public class SearchController {
 	@Qualifier(value="searchDetDAO")
 	public void setSearchService(SearchDetDAO ps){
 		this.searchDetDAO = ps;
+		this.searchDetDAO.setFullTextEntityManager();
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
