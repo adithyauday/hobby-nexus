@@ -82,8 +82,21 @@ public class User implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		this.password = hashPassword(password);
+		this.password =password;
 	}
+	
+	
+	public String getChangePassword() {
+		return changePassword;
+	}
+
+	public void setChangePassword(String changePassword) {
+		this.changePassword = changePassword;
+	}
+
+
+	@Column private String changePassword;
+
 
 	public String getEmail() {
 		return email;
@@ -110,7 +123,7 @@ public class User implements Serializable {
         return buffer.toString();
 	}
 	
-	//https://stackoverflow.com/questions/20832008/jsp-simple-password-encryption-decryption
+	//code from https://stackoverflow.com/questions/20832008/jsp-simple-password-encryption-decryption
 	public static String bytesToHex(byte[] bytes) {
 		  char[] hexChars = new char[bytes.length * 2];
 		  int v;
@@ -123,17 +136,15 @@ public class User implements Serializable {
 	}
 
 		
-		// A password hashing method.
-	public static String hashPassword(String in) {
+	//code from https://stackoverflow.com/questions/20832008/jsp-simple-password-encryption-decryption
+	public String hashPassword(String in) {
 		  try {
-		    MessageDigest md = MessageDigest
-		        .getInstance("SHA-256");
+		    MessageDigest md = MessageDigest.getInstance("SHA-256");
 		    md.update(SALT.getBytes());        // <-- Prepend SALT.
 		    md.update(in.getBytes());
-		    // md.update(SALT.getBytes());     // <-- Or, append SALT.
 
 		    byte[] out = md.digest();
-		    return bytesToHex(out);            // <-- Return the Hex Hash.
+		    return bytesToHex(out);           
 		  } catch (NoSuchAlgorithmException e) {
 		    e.printStackTrace();
 		  }

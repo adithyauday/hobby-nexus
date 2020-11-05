@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
 	<title>User Profile</title>
@@ -35,11 +36,11 @@
 				</div>
 				
 				<div class="col-7 mr-4 pb-5 ">
-				 <form:form action="changeUserDetails/${user.user_id}" method="post" modelAttribute="detailsForm" class="form-signin">
+				 <form:form action="changeUserDetails?user_id=${user.user_id }" method="post" modelAttribute="detailsForm" class="form-signin">
 		
 					<div class="row ml-0"> 
 						<label for="fname">Name:</label><br>
-  						<form:input class="form-control input-sm" path="user_name" type="text" id="fname" name="fname"  value="${user.user_name}" /><br> 
+  						<form:input class="form-control input-sm" path="user_name" type="text" id="fname" name="fname"  value="${user.user_name}" required="required"/><br> 
 					</div>
 					
 					<div class="row ml-0 pt-4"> 
@@ -47,10 +48,13 @@
   						<form:input class="form-control input-sm" path="location" type="text" id="location" name="location" value="${user.location}" /><br>
 					</div>
 					
+					<spring:bind path="email">
 					<div class="row ml-0 pt-4"> 
 						<label for="email">Email:</label><br>
-  							<form:input class="form-control input-sm" path="email" type="text" id="email" name="email" value="${user.email}"/><br>
+  							<form:input class="form-control input-sm" path="email" type="email" id="email" name="email" value="${user.email}" required="required"/><br>
+  							<form:errors class = "text-danger" path="email"></form:errors>
 					</div>
+					</spring:bind>
 					<div class="row ml-0 pt-4"> 
 						<button class="btn btn-primary">Save Details</button>
 					</div>
@@ -61,7 +65,7 @@
 		</div>
 	
 	  
-	  <!--<form:form action="changePass/${user.user_id}" method="post" modelAttribute="passForm" class="form-signin">
+	  <form:form action="changePass?user_id=${user.user_id }" method="post" modelAttribute="passForm" class="form-signin">
 		<div class="container">
 			<div class="row">
 			
@@ -73,20 +77,19 @@
 					<div class="row ml-0"><b> Change Password  </b></div>
 					<br>
 					
+					<spring:bind path="password">
 					<div class="row ml-0"> 
-						<label for="oldpass">Old Password:</label><br>
-  							<input class="form-control input-sm" type="password" id="oldpass" name="oldpass" value=""><br>
+						<label for="password">Old Password:</label><br>
+  							<form:input class="form-control input-sm" path="password" type="password" id="password" name="password" value="" /><br>
+  							<form:errors class = "text-danger" path="password"></form:errors>
 					</div>
+					</spring:bind>
 					
 					<div class="row ml-0 pt-4"> 
-						<label for="newpass">New Password:</label><br>
-  							<input class="form-control input-sm" type="password" id="newpass" name="newpass" value=""><br>
+						<label for="changePassword">New Password:</label><br>
+  							<form:input class="form-control input-sm" path="changePassword" type="password" id="changePassword" name="changePassword" value="" required="required"/><br>
 					</div>
 					
-					<div class="row ml-0 pt-4"> 
-						<label for="confirmpass">Confirm Password:</label><br>
-  							<input class="form-control input-sm" type="password" id="confirmpass" name="confirmpass" value=""><br>
-					</div>
 					
 					<div class="row ml-0 pt-4"> 
 						<button class="btn btn-primary " type="submit">Change Password</button>
@@ -95,7 +98,7 @@
 			
 			</div>
 		</div>
-	  </form:form>-->
+	  </form:form>
 	  
 	</div>
 	

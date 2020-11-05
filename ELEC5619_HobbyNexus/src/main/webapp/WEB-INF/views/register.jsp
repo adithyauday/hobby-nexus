@@ -56,11 +56,10 @@
 	<div class="form-container sign-in-container">
 	<form:form action="validate" method="post" modelAttribute="loginForm" class="form-signin" >
         <h2 class="form-heading">Log in</h2> <br>
-        	<form:errors path="email" />
+        	<form:errors class = "text-danger" path="email" />
             <form:input name="email" path="email" type="email" class="form-control" placeholder="Email"
                    autofocus="true" required="required"/><br>
             <form:input name="password" path="password" type="password" class="form-control" placeholder="Password" required="required"/><br>
-
             <button>Sign In</button>
     </form:form>
     </div>
@@ -108,6 +107,9 @@ signInButton.addEventListener('click', () => {
 });
 
 
+
+
 </script>  
+
 </body>
-<jsp:include page="footer.jsp" />
+

@@ -1,6 +1,6 @@
 package au.usyd.nexus.dao;
   
-import org.springframework.stereotype.Repository; 
+import org.springframework.stereotype.Repository;  
 import org.springframework.transaction.annotation.Transactional;
 
 import au.usyd.nexus.domain.User;
