@@ -8,6 +8,10 @@ import org.springframework.validation.Validator;
 
 import au.usyd.nexus.domain.User;
 
+/**
+ * This class validates form values
+ *
+ */
 @Component
 public class UserValidator implements Validator {
 
@@ -19,13 +23,21 @@ public class UserValidator implements Validator {
         return User.class.equals(aClass);
     }
 
-    
+    /**
+     * This function sends form errors if credentials are invalid
+     * 1) email length > 40
+     * 2) duplicate user email
+     * 3) passwords don't match
+     */
     @Override
     public void validate(Object o, Errors errors) {
         User user = (User) o;
-        User duplicateUser = userAuthService.findByEmail(user.getEmail());
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
-        if (user.getEmail().length() > 40) {
+        User duplicateUser = null;
+        if(user.getEmail()!=null)
+        	 duplicateUser = userAuthService.findByEmail(user.getEmail());
+        else
+        	duplicateUser = userAuthService.findById(user.getUser_id());
+        if (user.getEmail()!=null && user.getEmail().length() > 40) {
         	System.out.println("Username got rejected");
             errors.rejectValue("email", "Size.userForm.email");
         }
@@ -33,10 +45,9 @@ public class UserValidator implements Validator {
         	System.out.println("Email got rejected");
             errors.rejectValue("email", "Duplicate.userForm.email");
         }
-        
-        if (user.getPassword()!=null && (user.getPassword().length() < 8 || user.getPassword().length() > 32)) {
-        	System.out.println("Password got rejected");
-            errors.rejectValue("password", "Size.userForm.password");
+        if (user.getPassword()!=null && duplicateUser != null && (!user.getPassword().equals(duplicateUser.getPassword()))) {
+        	System.out.println("Password got rejected ");
+            errors.rejectValue("password", "Diff.userForm.password");
         }
 
     }

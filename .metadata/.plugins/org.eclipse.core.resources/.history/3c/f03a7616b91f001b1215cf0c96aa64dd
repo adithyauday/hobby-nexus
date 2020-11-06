@@ -64,17 +64,17 @@ public class HobbyController {
         }
         
 		if(b!=null) {
-			ServletOutputStream out;
-	        try {
-	        	out = response.getOutputStream();
-				out.write(b.getBytes(1,(int) b.length()));
-		        out.flush();
-		        out.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		ServletOutputStream out;
+        try {
+        	out = response.getOutputStream();
+			out.write(b.getBytes(1,(int) b.length()));
+	        out.flush();
+	        out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		}
         response.setHeader("Pragma", "no-cache");
         response.setHeader("Cache-Control", "no-cache");

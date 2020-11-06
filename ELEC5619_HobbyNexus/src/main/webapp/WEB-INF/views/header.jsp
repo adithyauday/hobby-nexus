@@ -12,6 +12,7 @@
 <header>
 <div class="navbar navbar navbar-expand-sm navbar-light bg-light justify-content-between fixed-top" id="navMenu">
 	<div class="container-fluid">
+	
 	  <div class="navbar-header">
           <a class="navbar-brand" href="home">Hobby Nexus</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +20,7 @@
   			</button>
           
       </div>
+      
 	  <div class="collapse navbar-collapse" id="myNavbar">
 		  <form class="mx-2 my-auto d-inline w-100" action="search" method="post">
 		   <div class="input-group">
@@ -28,41 +30,50 @@
 		       </span>
 		    </div>
 		  </form>
-		<div class="navbar-nav ml-auto inline  "> 
-		
-			<!--  need to style link -->
+	  </div>
+	  
+	  <div class="navbar-nav ml-auto inline  "> 
+			
+		<div class="dropdown">
 			<c:if test="${user != null}">
-						<form action="editProfile" method="post">
-				<button type="submit" name="your_name" value="your_value" class="btn-link">
-					<span class="oi oi-person"></span> 
-					${user.user_name}
-				</button>
-			</form>
-			<form >
-				<button type="button" name="your_name" value="your_value" class="btn-link" data-toggle="modal" data-target="#myModal">
-					<span class="oi oi-credit-card"></span> 
-					Create Hobby
-				</button>
-			</form>
+			    <button class="btn btn-link dropdown-menu-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    	${user.user_name}
+			    </button>
+			  
+			    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"> 
+			    	<form action="editProfile" method="post">
+						<button type="submit" name="your_name" value="your_value" class="btn-link dropdown-item">
+							<span class="oi oi-person"></span> 
+							Edit Profile
+						</button>
+					</form>
 			
-			<form action="logout" method="post">
-				<!-- Style this better -->
-				<button type="submit" name="your_name" value="your_value" class="btn-link">
-					<span class="oi oi-account-logout"></span> 
-					Logout
-				</button>
-			</form>
+					<form >
+						<button type="button" name="your_name" value="your_value" class="btn-link dropdown-item" data-toggle="modal" data-target="#myModal">
+							<span class="oi oi-credit-card"></span> 
+							Create Hobby
+						</button>
+					</form>
 			
+					<form action="logout" method="post">
+						<button type="submit" name="your_name" value="your_value" class="btn-link dropdown-item">
+							<span class="oi oi-account-logout"></span> 
+							Logout
+						</button>
+					</form>
+    			</div>
 			</c:if>
-			
-			<c:if test="${user == null}">
-				<a class="nav-link" href="register"><span class="oi oi-account-login"></span> Login</a>
-			</c:if>
-			
 		</div>
-	 </div>
+		
+		
+		<c:if test="${user == null}">
+			<a class="nav-link" href="register"><span class="oi oi-account-login"></span> Login</a>
+		</c:if>
+			
 	</div>
-</div>
+  </div>
+ </div>
+
 
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">

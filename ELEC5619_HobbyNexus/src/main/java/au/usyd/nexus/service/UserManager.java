@@ -1,27 +1,54 @@
 package au.usyd.nexus.service;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import au.usyd.nexus.dao.UserManagerDAO;
 import au.usyd.nexus.domain.User;
 
+/**
+ *  This class acts as a connection between UserManagerDAO and Controllers
+ *
+ */
 @Service(value="userManager")
-@Transactional
 public class UserManager {
 
-	@Autowired
-	private SessionFactory sessionFactory;
+	 @Autowired
+	 private UserManagerDAO userManagerDAO;
+
+	 /**
+	  * Sets userManagerDAO: Mainly for testing purposes
+	  * @param userManagerDAO
+	  */
+	 public void setUserManagerDAO(UserManagerDAO userManagerDAO) {         
+		 this.userManagerDAO = userManagerDAO;
+     }
 	
+	/**
+	 * Updates user details in the DB
+	 * 
+	 * @param user
+	 */
 	public void updateUserDetails(User user) {
-		Session currentSession = this.sessionFactory.getCurrentSession();
-		User existingUser = (User) currentSession.get(User.class, user.getUser_id());
-		existingUser.setUser_name(user.getUser_name());
-		existingUser.setLocation(user.getLocation());
-		existingUser.setEmail(user.getEmail());
-		currentSession.merge(existingUser);
+		userManagerDAO.updateUserDetails(user);
+	}
+	
+	/**
+	 * Updates user image in DB
+	 * 
+	 * @param user
+	 */
+	public void updateUserImage(User user) {
+		userManagerDAO.updateUserImage(user);
+	}
+	
+	/**
+	 * Updates user password in DB
+	 * 
+	 * @param user
+	 */
+	public void updateUserPassword(User user) {
+		userManagerDAO.updateUserPassword(user);
 	}
 	
 }

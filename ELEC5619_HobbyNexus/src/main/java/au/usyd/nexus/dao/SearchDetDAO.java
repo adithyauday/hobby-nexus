@@ -33,6 +33,15 @@ public class SearchDetDAO {
 	@PersistenceContext
 	EntityManager entityManager;
 
+	public void setFullTextEntityManager() {
+		FullTextEntityManager fullTextEntityManager2 = Search.getFullTextEntityManager(entityManager);
+	  	try {
+	  			fullTextEntityManager2.createIndexer().startAndWait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
 	
     public void setSessionFactory(SessionFactory sessionFactory) {
            this.sessionFactory = sessionFactory;
@@ -45,14 +54,6 @@ public class SearchDetDAO {
     @SuppressWarnings("unchecked")
 	public List<User> search(String searchItem){
     			
-		FullTextEntityManager fullTextEntityManager2 = Search.getFullTextEntityManager(entityManager);
-	  	try {
-	  			fullTextEntityManager2.createIndexer().startAndWait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
 	  	FullTextEntityManager fullTextEntityManager =
 	  		    org.hibernate.search.jpa.Search.getFullTextEntityManager(entityManager);
 	  	
@@ -71,21 +72,13 @@ public class SearchDetDAO {
 	  	org.hibernate.search.jpa.FullTextQuery jpaQuery
 	  	  = fullTextEntityManager.createFullTextQuery(query, User.class);
 	  	List<User> results = jpaQuery.getResultList();
-
+	  	
 		return results;
     }
     
     @SuppressWarnings("unchecked")
 	public List<Hobby> searchHobby(String searchItem){
     			
-		FullTextEntityManager fullTextEntityManager2 = Search.getFullTextEntityManager(entityManager);
-	  	try {
-	  			fullTextEntityManager2.createIndexer().startAndWait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
 	  	FullTextEntityManager fullTextEntityManager =
 	  		    org.hibernate.search.jpa.Search.getFullTextEntityManager(entityManager);
 	  	
