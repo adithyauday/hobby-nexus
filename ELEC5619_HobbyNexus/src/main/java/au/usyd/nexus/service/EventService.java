@@ -81,7 +81,7 @@ public class EventService{
 	}
 	
 	
-	private static Integer init_event_id =4;
+	private static Integer init_event_id =5;
 	private Map<Integer, Event> addNewEvent =null;
 	@Resource
 	private SessionFactory sessionFactory;
@@ -89,12 +89,11 @@ public class EventService{
 	
 	
 	public void save(Event event){
-		
-//		Session sess = sessionFactory.openSession();
+		Session sess = sessionFactory.openSession();
 //		Transaction tx = sess.beginTransaction();
 //		addNewEvent =new HashMap<Integer, Event>();
 		Event even =new Event();
-		even.setEvent_id(4);
+		even.setEvent_id(init_event_id++);
 		even.setHobby_id(2);
 		even.setEvent_name(event.getEvent_name());
 		even.setEvent_desc(event.getEvent_desc());
@@ -104,53 +103,9 @@ public class EventService{
 		even.setLocation(event.getLocation());
 		even.setEvent_date(event.getEvent_date());
 		even.setCreate_time("2020-11-04 12:34:50");
-		System.out.println(even.getEvent_id());
-//		sess.save(even);
-//		 tx.commit();
-//		 sess.close();
-//		 sessionFactory.close();
-//		addNewEvent.put(event.getEvent_id(),event);
-//
-//		System.out.println(addNewEvent);
-//		sessionFactory.getCurrentSession();
-
-		
-		
-		
-//		session.save(event);
-		//创建session对象
-		
-//
-//		try {
-//			session =HibernateSessionFactory.currentSession();
-//			Event even =new Event();
-//			even.setEvent_id(init_event_id++);
-//			even.setHobby_id(2);
-//			even.setEvent_name(event.getEvent_name());
-//			even.setEvent_desc(event.getEvent_desc());
-//			even.setSkill_level_limit(event.getSkill_level_limit());
-//			even.setNumber_limit(event.getNumber_limit());
-//			even.setAttandance(1);
-//			even.setLocation(event.getLocation());
-//			even.setCreate_time(event.getCreate_time());
-//			even.setCreate_time("2020-11-04 12:34:50");
-//			 
-//		    tx.commit();   
-//		}   
-//		catch (Exception e) {   
-//		    if (tx!=null) tx.rollback();   
-//		    throw e;   
-//		}   
-//		finally {   
-//			HibernateUtils.closeSession(session);   
-//		}  
-		
+		System.out.println(even);
+		sess.save(even);
 	}
-//	
-//	public Serializable save(Event event, InputStream in) throws IOException {
-//		return EventDao.save(event,in);
-//	}
-	
 	public void updates(Event event) {
 		sessionFactory.getCurrentSession().merge(event);
 	}
