@@ -7,6 +7,7 @@
 	<title>User Profile</title>
 	
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
+	<script src="<c:url value="/resources/js/autocomplete.js"/>" ></script>
 	<link rel="stylesheet" href="<c:url value="/resources/css/editProfile.css"/>">
 </head>
 <body>
@@ -43,9 +44,10 @@
   						<form:input class="form-control input-sm" path="user_name" type="text" id="fname" name="fname"  value="${user.user_name}" required="required"/><br> 
 					</div>
 					
-					<div class="row ml-0 pt-4"> 
+					<div class="row ml-0 pt-4" id="locationField"> 
 						<label for="location">Location:</label><br>
-  						<form:input class="form-control input-sm" path="location" type="text" id="location" name="location" value="${user.location}" /><br>
+  						<form:input class="form-control input-sm" path="location" type="text" id="location" name="location"  value="${user.location}" placeholder="Enter your address"
+        onFocus="geolocate()"/><br>
 					</div>
 					
 					<spring:bind path="email">
