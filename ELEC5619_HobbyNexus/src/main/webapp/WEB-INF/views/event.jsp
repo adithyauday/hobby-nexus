@@ -71,7 +71,7 @@
 			
 		<div class ="mb-3 mt-3">
 			<c:if test="${user != null}">	
-				<form:form action="joinEvent?user_id=${user.user_id}" method="post" >
+				<form:form action="joinEvent/${event.event_id}/${user.user_id}" method="post" modelAttribute="events" >
 				<button class="btn btn-primary " type="submit">Join</button>
 				</form:form>
 			</c:if>

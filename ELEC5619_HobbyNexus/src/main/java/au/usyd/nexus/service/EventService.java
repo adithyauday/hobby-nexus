@@ -32,6 +32,7 @@ import au.usyd.nexus.dao.HobbyDAO;
 import au.usyd.nexus.domain.Article;
 import au.usyd.nexus.domain.Hobby;
 import au.usyd.nexus.domain.User;
+import au.usyd.nexus.domain.Usereventmap;
 import au.usyd.nexus.domain.Event;
 
 
@@ -85,7 +86,10 @@ public class EventService{
 	@Resource
 	private SessionFactory sessionFactory;
 	
-	
+	public void saveUserEventMap(Usereventmap uem) {
+		Session session = sessionFactory.openSession();
+		session.save(uem);
+	}
 	
 	public void save(Event event){
 		Session sess = sessionFactory.openSession();
