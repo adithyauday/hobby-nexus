@@ -17,7 +17,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-	<jsp:include page="header.jsp" />
+	
 	<div class="godown-60" id="godown"></div>
 	<div class=" main-container">
 	 	<h2 class ="pageHeading">Add Event</h2><br>
@@ -39,16 +39,10 @@
 			 		<td>Skill Level</td>
 			 		<td>
 						  <select name="skill_level_limit" id="skill_level_limit">
-						    <option value="1">1</option>
-						    <option value="2">2</option>
-						    <option value="3">3</option>
-						    <option value="4">4</option>
-						    <option value="5">5</option>
-						    <option value="6">6</option>
-						    <option value="7">7</option>
-						    <option value="8">8</option>
-						    <option value="9">9</option>
-						    <option value="10">10</option>
+						    <option value="Beginner">Beginner</option>
+						    <option value="Intermediate">Intermediate</option>
+						    <option value="Advanced">Advanced</option>
+						    
 						  </select>
 			 		</td>
 		 		</tr>

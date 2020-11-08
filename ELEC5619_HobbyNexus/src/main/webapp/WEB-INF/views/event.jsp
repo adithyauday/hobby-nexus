@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/hobby.js"/>"></script>
 
+
 </head>
 
 <body>
