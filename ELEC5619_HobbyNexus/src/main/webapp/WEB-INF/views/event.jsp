@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page session="false"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 	<title>Event</title>
@@ -65,7 +66,15 @@
 
 			</table>
 			
+		
+			
 		<div class ="mb-3 mt-3">
+			<c:if test="${user != null}">	
+				<form:form action="joinEvent?user_id=${user.user_id}" method="post" >
+				<button class="btn btn-primary " type="submit">Join</button>
+				</form:form>
+			</c:if>
+			
 			<a href="/nexus/eventlist"> <button class="btn btn-primary " type="submit">Back</button>
 			</a>
 		</div>
