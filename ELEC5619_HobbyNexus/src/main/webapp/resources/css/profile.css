@@ -17,3 +17,13 @@
 	padding-bottom:30px;
 	color:green;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-right: 2em;
+}

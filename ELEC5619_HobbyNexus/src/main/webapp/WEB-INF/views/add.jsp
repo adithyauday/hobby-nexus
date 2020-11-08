@@ -24,67 +24,71 @@
 	 		<div class="container">
 	 		<form action="/nexus/addevent" method="post">
 	 		<table>
-	 		<tr>
-	 			<th colspan="2"> Add an Event </th>
-	 		</tr>
-	 		<tr>
-	 		<td>Event Name</td>
-	 		<td>
-	 			<input type="text" name="event_name" />
-	 		</td>
-	 		</tr>
-	 		<tr>
-	 		<td>Event Description</td>
-	 		<td>
-	 			<input type="text" name="event_desc" />
-	 		</td>
-	 		</tr>
-	 		<tr>
-	 		<td>Skill Level</td>
-	 		<td>
-	 			<input type="text" name="skill_level_limit" />
-	 		</td>
-	 		</tr>
-	 		<tr>
-	 		<td>Number Limitation</td>
-	 		<td>
-	 			<input type="text" name="number_limit" />
-	 		</td>
-	 		</tr>
-	 		<tr>
-	 		<td>Location</td>
-		 		<td>
-		 			<input type="text" name="location" id="location"/>
-		 		</td>
-	 		</tr>
-	 		<tr>
-		 		<td>Event Date (Format:yyyy-dd-mm hh:mm:ss)</td>
-		 		<td>
-		 			<input type="text" name="event_date" />
-	 		</td>
-	 		</tr>
-	 		<tr>
-	 		<td>Hobby</td>
-		 		<td>
-		 			<select name="hobby.hobby_id">
-		 			<option>-SELECT Hobby-</option>
-	 	 			<c:forEach items="${hobbys }" var="hobby">
-	 	 			<option value="${hobby.hobby_id} "><c:out value="${hobby.hobby_name}"></c:out></option>
-	 	 			</c:forEach> 
-						</select>
-		 		</td>
-	 		</tr>
 	 		
-	 		<tr>
-		 		<td colspan ='2'>
-		 			<input type="submit" name="ADD" />
-		 			
-		 		</td>
-	 		</tr>
+		 		<tr>
+			 		<td>Event Name</td>
+			 		<td><input type="text" name="event_name" required /></td>
+		 		</tr>
+		 		
+		 		<tr>
+			 		<td>Event Description</td>
+			 		<td><input type="text" name="event_desc" required /></td>
+		 		</tr>
+		 		
+		 		<tr>
+			 		<td>Skill Level</td>
+			 		<td>
+						  <select name="skill_level_limit" id="skill_level_limit">
+						    <option value="1">1</option>
+						    <option value="2">2</option>
+						    <option value="3">3</option>
+						    <option value="4">4</option>
+						    <option value="5">5</option>
+						    <option value="6">6</option>
+						    <option value="7">7</option>
+						    <option value="8">8</option>
+						    <option value="9">9</option>
+						    <option value="10">10</option>
+						  </select>
+			 		</td>
+		 		</tr>
+		 		
+		 		<tr>
+			 		<td>Number Limitation</td>
+			 		<td><input type="number" name="number_limit" required /></td>
+		 		</tr>
+		 		
+		 		<tr>
+			 		<td>Location</td>
+				 	<td><input type="text" name="location" id="location" required/></td>
+			 	</tr>
+			 	
+		 		<tr>
+			 		<td>Event Date (Format:yyyy-dd-mm hh:mm:ss)</td>
+			 		<td><input type="text" name="event_date" required/></td>
+		 		</tr>
+		 		
+		 		<tr>
+		 		<td>Hobby</td>
+			 		<td>
+			 			<select name="hobby.hobby_id">
+		 	 			<c:forEach items="${hobbys }" var="hobby">
+		 	 			<option value="${hobby.hobby_id} "><c:out value="${hobby.hobby_name}"></c:out></option>
+		 	 			</c:forEach> 
+							</select>
+			 		</td>
+		 		</tr>
+		 		
+		 		
+		 		<tr>
+			 		<td colspan ='2'><input type="submit" name="ADD" class="btn btn-primary " value="Create Hobby" /></td>
+		 		</tr>
 	 		
 	 		</table>
 	 		</form>
+	 		
 		<div id="map" style="height: 50%; width: 100%; border-radius: 20px;"></div>
+		
  		</div>
     </div>
     
