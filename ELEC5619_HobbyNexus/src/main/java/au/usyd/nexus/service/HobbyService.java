@@ -57,6 +57,11 @@ public class HobbyService {
 		HobbyDao.save(obj);
 		
 	}
+	
+	public void joinhobby(int hobby_id,int user_id) {
+		HobbyDao.joinhobby(hobby_id,user_id);
+		
+	}
 
 
 }

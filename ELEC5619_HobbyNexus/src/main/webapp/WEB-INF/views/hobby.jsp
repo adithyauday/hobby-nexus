@@ -26,6 +26,11 @@
 		 	<c:if test="${currentUser != null}">	
 		 	<a class="btn btn-default float-right" href="#" role="button"  data-toggle="modal" data-target="#myModal">Create Hobby</a>
 		 	<a class="btn btn-default float-right" href="#" role="button"  data-toggle="modal" data-target="#myPost">Create Post</a>
+		 	<form class="mx-2 my-auto d-inline w-100 float-right" action="joinhobby/${hobby.hobby_id}" method="post">
+		       	<input class="btn btn-default float-right" type="submit" value="Join Hobby" name = "joinButton"/>     
+		    </form>
+		 	
+		 	<!-- <a class="btn btn-default float-right" role="button">Join Hobby</a> -->
 		 	</c:if>
 		 	</div>
 		 	<p class="hobbydesc">${hobby.hobby_desc }</p>

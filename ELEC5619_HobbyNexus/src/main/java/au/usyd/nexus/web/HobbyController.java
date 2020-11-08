@@ -15,9 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -153,7 +156,13 @@ public class HobbyController {
 		result.put("result", true);
 		result.put("msg", "Success");
 		return result;
-
+	}
+	
+	@RequestMapping(value="/joinhobby/{hobby_id}", method = RequestMethod.POST)
+	public String joinhobby(HttpSession session,@PathVariable("hobby_id") Integer hobby_id) {		
+		User user= (User) session.getAttribute("user");
+		hobbyService.joinhobby(hobby_id,user.getUser_id());
+		return "redirect:/hobby?hobby_id="+ hobby_id;
 	}
 	
 

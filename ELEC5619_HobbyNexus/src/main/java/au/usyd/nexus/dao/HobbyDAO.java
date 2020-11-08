@@ -86,5 +86,12 @@ public class HobbyDAO {
 		session.save(obj);
         session.close();		
 	}
+	
+	public void joinhobby(int hobby_id, int user_id) {
+		UserhobbyMay um = new UserhobbyMay();
+		um.setHobby_id(hobby_id);
+		um.setUser_id(user_id);
+		save(um);
+	}
 
 }
