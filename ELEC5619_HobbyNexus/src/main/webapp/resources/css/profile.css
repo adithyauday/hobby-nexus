@@ -19,11 +19,11 @@
 }
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 10px;
 }
 
 td {
     padding-top: .5em;
     padding-bottom: .5em;
-    padding-right: 2em;
 }

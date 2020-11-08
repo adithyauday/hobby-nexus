@@ -8,9 +8,6 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-//import org.hibernate.search.FullTextQuery;
-//import org.hibernate.search.FullTextSession;
-//import org.hibernate.search.Search;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
@@ -50,7 +47,11 @@ public class SearchDetDAO {
     protected Session getSession(){
            return sessionFactory.openSession();
     }
-    
+    /**
+	* This function searches user given (searchItem) using FullTextEntityManager
+	* @param searchItem
+	* @return	: List of Users whose name are similar to searchItem
+	*/
     @SuppressWarnings("unchecked")
 	public List<User> search(String searchItem){
     	if(count == 0) {
@@ -58,52 +59,59 @@ public class SearchDetDAO {
     		count++;
     	}
 	  	FullTextEntityManager fullTextEntityManager =
-	  		    org.hibernate.search.jpa.Search.getFullTextEntityManager(entityManager);
+	  		    Search.getFullTextEntityManager(entityManager);
 	  	
 	  	QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory() 
 	  			  .buildQueryBuilder()
 	  			  .forEntity(User.class)
 	  			  .get();
 	  	
-	  	org.apache.lucene.search.Query query = queryBuilder
+	  	Query query = queryBuilder
 	  			  .keyword()
 	  			  .fuzzy()
 	  			  .onField("user_name")
 	  			  .matching(searchItem)
 	  			  .createQuery();
 	  	
-	  	org.hibernate.search.jpa.FullTextQuery jpaQuery
-	  	  = fullTextEntityManager.createFullTextQuery(query, User.class);
+	  	FullTextQuery jpaQuery = fullTextEntityManager.createFullTextQuery(query, User.class);
 	  	List<User> results = jpaQuery.getResultList();
 	  	
 		return results;
     }
-    
+    /**
+   	* This function searches hobby given (searchItem) using FullTextEntityManager
+   	* @param searchItem
+   	* @return	: List of Hobbies whose name are similar to searchItem
+   	*/
     @SuppressWarnings("unchecked")
 	public List<Hobby> searchHobby(String searchItem){
     			
 	  	FullTextEntityManager fullTextEntityManager =
-	  		    org.hibernate.search.jpa.Search.getFullTextEntityManager(entityManager);
+	  		    Search.getFullTextEntityManager(entityManager);
 	  	
 	  	QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory() 
 	  			  .buildQueryBuilder()
 	  			  .forEntity(Hobby.class)
 	  			  .get();
 	  	
-	  	org.apache.lucene.search.Query query = queryBuilder
+	  	Query query = queryBuilder
 	  			  .keyword()
 	  			  .fuzzy()
 	  			  .onField("hobby_name")
 	  			  .matching(searchItem)
 	  			  .createQuery();
 	  	
-	  	org.hibernate.search.jpa.FullTextQuery jpaQuery
+	  	FullTextQuery jpaQuery
 	  	  = fullTextEntityManager.createFullTextQuery(query, Hobby.class);
 	  	List<Hobby> results = jpaQuery.getResultList();
 
 		return results;
     }
     
+    /**
+   	* This function finds all the hobbies from database
+   	* @return	: List of Hobbies whose name are similar to searchItem
+   	*/
     @SuppressWarnings("unchecked")
 	public List<Hobby> searchAllHobby(){        
     	return (List<Hobby>)this.getSession().createQuery("from Hobby as o").list();
