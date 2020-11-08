@@ -8,7 +8,7 @@
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
 	<link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
 </head>
-<body>
+<body data-spy="scroll">
 	<!-- include header -->
 	<jsp:include page="header.jsp" />
 	<!-- <div class="godown-60" id="godown"></div> -->
@@ -18,7 +18,7 @@
   			<h1 class="mainHeading">Welcome to <span class="webName">HobbyNexus</span></h1>
   			<p class="subHeading pt-3 pb-3"> A platform connecting hobby enthusiasts all over the world</p>
 			<div class="grid-container">
-			  <div class="grid-item"><button class="mainButton">Explore</button></div>
+			  <div class="grid-item"><a href="#exploreSection"><button class="mainButton">Explore</button></a></div>
 			  <c:if test="${user == null}">
 			  <form action="register" method="post">
 			  	<div class="grid-item"><button class="mainButton">Join us</button></div>
@@ -32,7 +32,7 @@
 			</div>
   		</div>
 	</div>
-	<div class=" main-container pl-4 pt-4">
+	<div class=" main-container pl-4 pt-4" id="exploreSection">
 		<div class="dots">&hellip;</div>
 		<h3 class="center"><i> Find and Explore your interests!</i> </h3>
 		
