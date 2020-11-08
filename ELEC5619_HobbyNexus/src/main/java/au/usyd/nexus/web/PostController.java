@@ -36,71 +36,58 @@ public class PostController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
+	
+	/**
+	 * This function takes the mapping "/post" and display the content of the article and all comments
+	 *  
+	 * @param model: Current model
+	 * @param request: Current request
+	 * @param session: Current session
+	 * @param article_id: article id used to query article
+	 * 
+	 * @return : post page with article content and comments
+	 */
 	@RequestMapping("/post")
 	public String displayContent(Model model, HttpServletRequest request,HttpSession session, Integer article_id) {
-		//List<Comment> comments=commentService.getCommentsByArticleId(article_id);
-		//model.addAttribute("comments", comments);
 		model.addAttribute("article",this.articleService.getArticleById(article_id));
 		model.addAttribute("newComment", new Comment());
-		//if(session.getAttribute("user")==null) return "redirect:/register";
-		//model.addAttribute("user",session.getAttribute("user"));
+
 		return "post";
 	}
 	
 	
-
+	/**
+	 * This function takes the mapping "/makeComment/{article_id}" and create comment for current article
+	 *  
+	 * @param newComment: New comment from user
+	 * @param model: Current model
+	 * @param session: Current session
+	 * @param title: Title of the new comment
+	 * @param content: Content of the new comment
+	 * @param article_id: The article ID of current article
+	 * 
+	 * @return : post page with article content and comments
+	 */
 	@RequestMapping("/makeComment/{article_id}")
 	 public String makeComment(@ModelAttribute("newComment") Comment newComment, Model model, HttpSession session, String title, String content, @PathVariable("article_id") Integer article_id) {
-		//
+		//Create a comment for this post
 		
 		logger.info("User has requested to make new comment");
+		//Verify the user's login status, if not login yet, redirect to the login page.
 		if(session.getAttribute("user")==null) return "redirect:/register";
 		User user = (User)session.getAttribute("user");
-		//Comment comment = (Comment)session.getAttribute("comment");
-		//String content = comment.getContent();
-		//String title = comment.getTitle();
-		//System.out.println(article_id);
-		//System.out.println(user.getUser_id());
 
-		//Comment newComment = new Comment();
-		//System.out.print(newComment.getComment_id());
-		
-		//Integer id = 7;
-		//newComment.setComment_id(id);
-		//System.out.println("id="+newComment.getComment_id());
 		newComment.setCreate_time(new Date());
 		newComment.setArtice_id(article_id);
 		newComment.setTitle(title);
 		newComment.setContent(content);
 		newComment.setUser(user);
-		//System.out.println(newComment.getTitle()+newComment.getContent()+newComment.getArtice_id()+newComment.getUser().getUser_id());
-		commentService.addComment(newComment);
 
+		commentService.addComment(newComment);
+		
 		return "redirect:/post?article_id="+article_id;
 	}
 	
-	
-/*	
-	public Article getArticleById(Integer id) {
-		return articleService.getArticleById(id);
-	}
-	
-	public Comment getCommentById(Integer id) {
-		return commentService.getCommentById(id);
-	}
-	
-	public void addComment(Comment comment) {
-		commentService.addComment(comment);
-	}
-	
-	public List<Comment> getCommentsByArticleId(Integer id){
-    	return commentService.getCommentsByArticleId(id);
-    }
-	
-	public User getUserById(Integer id) {
-		return commentService.getUserById(id);
-    }
-	
-*/	
+
 	
 }

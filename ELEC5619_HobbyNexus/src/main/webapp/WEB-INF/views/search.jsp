@@ -24,9 +24,7 @@
 <div class=" main-container">
 <div class="container p-3 col-sm-8">
 
-<c:if test="${!empty userList}">
-	<h6>Search Results for <code> ${searchedText}</code></h6>
-</c:if>
+<h6>Search Results for <code> ${searchedText}</code></h6>
 <h5>People</h5>
 <c:if test="${!empty userList}">
 	<div class="container-fluid">	

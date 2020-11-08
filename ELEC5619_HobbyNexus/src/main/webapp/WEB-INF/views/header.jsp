@@ -6,7 +6,7 @@
 <%--Dont remove, needed for google api--%>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initAutocomplete&libraries=places&v=weekly">
 </script>
 
 <header>
@@ -119,8 +119,21 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 function sub(){
-	var description=$("#description").val();
 	var hobbyname=$("#hobbyname").val();
+	if(hobbyname==""||hobbyname.length==0){
+		alert("Hobby Name cannot be empty");
+		return;
+	}
+	var fileInput = $('#file-fr').get(0).files[0];
+	if(!fileInput){
+		alert("Please select upload file!");
+		return;
+	}
+	var description=$("#description").val();
+	if(description==""||description.length==0){
+		alert("Description cannot be empty");
+		return;
+	}
 	$("#form1").ajaxSubmit({
 		url:'<%=request.getContextPath()%>/savehobby?hobby_name='+hobbyname+'&hobby_desc='+description,
 		dataType:'json',
@@ -136,6 +149,5 @@ function sub(){
 		}
 	});
 }
-
 </script>
 </header>

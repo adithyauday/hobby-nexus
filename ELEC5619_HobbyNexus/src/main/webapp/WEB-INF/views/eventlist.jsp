@@ -44,15 +44,7 @@
 		</tr>
 		</table>
 		</form>
-<!-- 		<a href="/nexus/event?event_id=1">  Listen-read-discuss strategy </a> -->
-		
-<%-- 		<br><img src="<%=request.getContextPath()%>/resources/images/read.png" width="150" height="150" /> --%>
-<!-- 		<br> -->
-<!-- 		<br><a href="/nexus/event?event_id=2">  Blue Mountains Photography Day Tour</a> -->
-<%-- 		<br><img src="<%=request.getContextPath()%>/resources/images/bmt.jpg" width="150" height="150" /> --%>
-<!-- 		<br> -->
-<!-- 		<br><a href="/nexus/event?event_id=3">Yoga in Watsons bay</a> -->
-<%-- 		<br><img src="<%=request.getContextPath()%>/resources/images/yoga.jpg" width="150" height="150" /> --%>
+
 	</div>
 	
 	</c:if> 

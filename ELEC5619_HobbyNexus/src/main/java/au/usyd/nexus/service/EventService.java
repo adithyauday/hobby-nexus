@@ -48,8 +48,7 @@ public class EventService{
 	
 	public List<User> getMembers(int event_id) {
 		String hql="select user from User as user,Usereventmap as uem where uem.user_id=user.user_id and event_id=:event_id";
-//		String hql="select event from Event as event,Usereventmap as uem where uem.event_id=event.event_id and user_id=:user_id";
-		
+	
 		
 		Map<String,Object> params=new HashMap<String, Object>();
 		params.put("event_id", event_id);
@@ -90,8 +89,6 @@ public class EventService{
 	
 	public void save(Event event){
 		Session sess = sessionFactory.openSession();
-//		Transaction tx = sess.beginTransaction();
-//		addNewEvent =new HashMap<Integer, Event>();
 		Event even =new Event();
 		even.setEvent_id(init_event_id++);
 		even.setHobby_id(2);
@@ -109,7 +106,7 @@ public class EventService{
 	public void updates(Event event) {
 		sessionFactory.getCurrentSession().merge(event);
 	}
-	//@Transactional(propagation=Propagation.REQUIRED,readOnly=true) 
+	
 	public List getAllEvent() {
 		List list = new ArrayList();
 		String hql = "from Event as e ";

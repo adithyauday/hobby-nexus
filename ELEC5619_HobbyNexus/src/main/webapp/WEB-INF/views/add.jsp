@@ -78,7 +78,7 @@
  		
  		</table>
  		</form>
-<%--  		<p>${hobbys[0]["hobby_id"]}</p> --%>
+
  		
     </div>
 </body>

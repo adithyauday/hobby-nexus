@@ -13,25 +13,23 @@ import org.springframework.web.servlet.ModelAndView;
 import au.usyd.nexus.dao.SearchDetDAO;
 import au.usyd.nexus.domain.Hobby;
 import au.usyd.nexus.domain.User;
+import au.usyd.nexus.service.SearchService;
 
 @Controller
 public class SearchController {
-
-	private SearchDetDAO searchDetDAO;
+	@Autowired
+	private SearchService searchService;
 	
-	@Autowired(required=true)
-	@Qualifier(value="searchDetDAO")
-	public void setSearchService(SearchDetDAO ps){
-		this.searchDetDAO = ps;
-		this.searchDetDAO.setFullTextEntityManager();
+		public void setSearchService(SearchService ps){
+		this.searchService = ps;
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public ModelAndView search(@Param("searchText") String searchText) {
 		ModelAndView mv = new ModelAndView("search");
 		
-		List<User> userList = this.searchDetDAO.search(searchText);
-		List<Hobby> hobbyList = this.searchDetDAO.searchHobby(searchText);
+		List<User> userList = this.searchService.search(searchText);
+		List<Hobby> hobbyList = this.searchService.searchHobby(searchText);
 		mv.addObject("userList", userList);
 		mv.addObject("hobbyList", hobbyList);
 		mv.addObject("searchedText", searchText);
