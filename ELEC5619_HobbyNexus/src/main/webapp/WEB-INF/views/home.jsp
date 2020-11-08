@@ -40,7 +40,7 @@
 		<a href='/nexus/hobbyList'>
 		  <div class="grid-item2">
 		  	<img class ="pb-3" width="260" height="200" src="<c:url value="/resources/images/hobby.jpg"/>"  /><br>
-		  	<a>Hobbys</a><br>
+		  	<a>Hobbies</a><br>
 		  	 <p class="desc">Learn hobbies you have always wanted to and share your skills with other members!</p>
 		  </div>
 		  </a>
