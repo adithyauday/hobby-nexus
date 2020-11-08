@@ -68,7 +68,7 @@ INSERT INTO `user` VALUES ('1006', '1', 'Patricia Arnold', '33417ABD8AB740F098A1
 -- ----------------------------
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
-  `artice_id` int(11) NOT NULL,
+  `artice_id` int(11) NOT NULL AUTO_INCREMENT,
   `hobby_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `title` varchar(500) DEFAULT NULL,
