@@ -4,15 +4,18 @@
 <head>
 	<title>Event list</title>
 	
-	<script src="<c:url value="/resources/js/map.js"/>" ></script>
+	
 	<link rel="stylesheet" href="<c:url value="/resources/css/profile.css"/>">
+	<script src="<c:url value="/resources/js/map.js"/>" ></script>
 </head>
 <body>
 	<!-- include header -->
+	
 	<jsp:include page="header.jsp" />
+	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:60px;"></div>
 	<div class="godown-60" id="godown"></div>
 	<div class=" main-container pl-4 pt-4">
-	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:60px;"></div>
+	
 		
 		<c:if test="${user != null}">
 		
