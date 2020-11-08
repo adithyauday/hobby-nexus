@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="ELEC5619_HobbyNexus" tests="25" started="25" failures="0" errors="0" ignored="0">
+  <testsuite name="au.usyd.nexus.web.LoginControllerTest" time="0.0">
+    <testcase name="testLogout" classname="au.usyd.nexus.web.LoginControllerTest" time="0.0"/>
+    <testcase name="testAddInvalidUser" classname="au.usyd.nexus.web.LoginControllerTest" time="0.0"/>
+    <testcase name="testAddValidUser" classname="au.usyd.nexus.web.LoginControllerTest" time="0.0"/>
+    <testcase name="testValidateInvalidUser" classname="au.usyd.nexus.web.LoginControllerTest" time="0.0"/>
+    <testcase name="testValidateValidUser" classname="au.usyd.nexus.web.LoginControllerTest" time="0.0"/>
+    <testcase name="testRegister" classname="au.usyd.nexus.web.LoginControllerTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="au.usyd.nexus.web.IndexControllerTest" time="0.0">
+    <testcase name="testHome" classname="au.usyd.nexus.web.IndexControllerTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="au.usyd.nexus.domain.UserTest" time="0.0">
+    <testcase name="testSetandGetLocation" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+    <testcase name="testSetandGetUsername" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+    <testcase name="testSetandGetPassword" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+    <testcase name="testSetandGetEmail" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="au.usyd.nexus.service.UserRegistrationServiceTest" time="0.0">
+    <testcase name="testAddUser" classname="au.usyd.nexus.service.UserRegistrationServiceTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="au.usyd.nexus.web.SearchControllerTest" time="0.0">
+    <testcase name="testSearch" classname="au.usyd.nexus.web.SearchControllerTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="au.usyd.nexus.service.UserAuthServiceTest" time="0.0">
+    <testcase name="testSetNullLoginDAO" classname="au.usyd.nexus.service.UserAuthServiceTest" time="0.0"/>
+    <testcase name="testSetLoginDAO" classname="au.usyd.nexus.service.UserAuthServiceTest" time="0.0"/>
+    <testcase name="testFindByEmail" classname="au.usyd.nexus.service.UserAuthServiceTest" time="0.0"/>
+    <testcase name="testCheckLogin" classname="au.usyd.nexus.service.UserAuthServiceTest" time="0.0"/>
+    <testcase name="testFindById" classname="au.usyd.nexus.service.UserAuthServiceTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="au.usyd.nexus.web.ProfileControllerTest" time="0.0">
+    <testcase name="testEditInvalidUserDetails" classname="au.usyd.nexus.web.ProfileControllerTest" time="0.0"/>
+    <testcase name="testEditValidUserDetails" classname="au.usyd.nexus.web.ProfileControllerTest" time="0.0"/>
+    <testcase name="testViewInvalidProfile" classname="au.usyd.nexus.web.ProfileControllerTest" time="0.0"/>
+    <testcase name="testViewValidProfile" classname="au.usyd.nexus.web.ProfileControllerTest" time="0.0"/>
+    <testcase name="testProfile" classname="au.usyd.nexus.web.ProfileControllerTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="au.usyd.nexus.service.SearchServiceTest" time="0.0">
+    <testcase name="testSearch" classname="au.usyd.nexus.service.SearchServiceTest" time="0.0"/>
+    <testcase name="testSearchHobby" classname="au.usyd.nexus.service.SearchServiceTest" time="0.0"/>
+  </testsuite>
+</testrun>

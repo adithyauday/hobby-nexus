@@ -1,0 +1,5 @@
+package au.usyd.nexus.service;
+
+public class SearchServiceTest {
+
+}

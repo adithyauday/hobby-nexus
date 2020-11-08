@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SearchControllerTest" project="ELEC5619_HobbyNexus" tests="1" started="1" failures="1" errors="0" ignored="0">
+  <testsuite name="au.usyd.nexus.web.SearchControllerTest" time="0.02">
+    <testcase name="testSearch" classname="au.usyd.nexus.web.SearchControllerTest" time="0.02">
+      <failure>java.lang.AssertionError: 
+Expected: is &lt;ModelAndView: reference to view with name 'search'; model is {userList=[ID: 0;Name: John;Email Address: test@test.email], hobbyList=[hobby [hobby_id=0, hobby_name=John, hobby_desc=null, create_time=null]], searchedText=John}&gt;
+     got: &lt;ModelAndView: reference to view with name 'search'; model is {userList=[ID: 0;Name: John;Email Address: test@test.email], hobbyList=[hobby [hobby_id=0, hobby_name=John, hobby_desc=null, create_time=null]], searchedText=John}&gt;
+&#13;
+	at org.junit.Assert.assertThat(Assert.java:778)&#13;
+	at org.junit.Assert.assertThat(Assert.java:736)&#13;
+	at au.usyd.nexus.web.SearchControllerTest.testSearch(SearchControllerTest.java:44)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at junit.framework.TestCase.runTest(TestCase.java:168)&#13;
+	at junit.framework.TestCase.runBare(TestCase.java:134)&#13;
+	at junit.framework.TestResult$1.protect(TestResult.java:110)&#13;
+	at junit.framework.TestResult.runProtected(TestResult.java:128)&#13;
+	at junit.framework.TestResult.run(TestResult.java:113)&#13;
+	at junit.framework.TestCase.run(TestCase.java:124)&#13;
+	at junit.framework.TestSuite.runTest(TestSuite.java:232)&#13;
+	at junit.framework.TestSuite.run(TestSuite.java:227)&#13;
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:83)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</failure>
+    </testcase>
+  </testsuite>
+</testrun>

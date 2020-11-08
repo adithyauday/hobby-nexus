@@ -1,0 +1,5 @@
+package au.usyd.nexus.web;
+
+public class SearchControllerTest {
+
+}
