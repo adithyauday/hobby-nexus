@@ -101,6 +101,7 @@ public class LoginController {
         }
         
         User user = authenticateService.findByEmail(loginForm.getEmail());
+        
         session.setAttribute("user" , user);
         logger.info(user.toString());
         return "redirect:home";
