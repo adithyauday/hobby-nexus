@@ -69,6 +69,7 @@ function initMap() {
   //Auto adjust zoom based on markers
   var bounds = new google.maps.LatLngBounds();
 
+ var markers = []
  for (var i = 0; i < features.length; i++) {
     const contentString = 
           "<h2>Name</h2>"+
@@ -83,10 +84,17 @@ function initMap() {
       icon: image,
       map: map
     });
+    markers.push(marker)
     marker.addListener("click", () => {
     infowindow.open(map, marker);
   });
   }
+  for (var i = 0; i < features.length; i++) {
+   markers[i].addListener("click", () => {
+    infowindow.open(map, marker);
+  });
+  }
+  
   map.fitBounds(bounds);
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

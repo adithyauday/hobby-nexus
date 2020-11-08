@@ -184,6 +184,19 @@
 		 		<tr>
 			 		<td colspan ='2'><input id='submit' type="submit" name="ADD" class="btn btn-primary " value="Create Event" /></td>
 		 		</tr>
+		 		<script>
+		 		
+		 		$(".btn").click(function(){
+		 			 var eventCount = localStorage.getItem("eventCount")
+		 	 		var eventID = eventCount++ 
+		 	 		var eventMap = localStorage.getItem("eventList")
+		 	 		console.log('count: '+ eventID + ", location: " + eventLoc)
+		 	 		eventMap.set(eventID, eventLoc)
+		 	 		localStorage.setItem("eventList", eventMap)	 		
+		 			localStorage.setItem('eventCount', eventCount++)
+		 			console.log(localStorage.getItem("eventList"))
+		 		  alert("button was clicked.");
+		 		});</script>
 	 		
 	 		</table>
 	 		</form>
