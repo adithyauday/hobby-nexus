@@ -1,6 +1,7 @@
 package au.usyd.nexus.web;
 
 import java.sql.Blob;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
@@ -18,10 +19,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import au.usyd.nexus.domain.Hobby;
 import au.usyd.nexus.domain.User;
+import au.usyd.nexus.service.HobbyService;
 import au.usyd.nexus.service.UserAuthService;
 import au.usyd.nexus.service.UserManager;
 import au.usyd.nexus.service.UserValidator;
+import au.usyd.nexus.service.HobbyService;
 
 /**
  * Handles requests for the user profile and edit pages.
@@ -39,7 +43,10 @@ public class ProfileController {
 
 	@Autowired
 	private UserAuthService authenticateService;
-
+	
+	@Autowired
+	private HobbyService hobbyService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	/**
@@ -86,7 +93,9 @@ public class ProfileController {
 		if (selected_user == null) {
 			return "redirect:/home";
 		}
+		List<Hobby> hobbies = hobbyService.getHobbies(user_id);
 		model.addAttribute("selected_user", selected_user);
+		model.addAttribute("hobbies", hobbies);
 		return "/profile";
 	}
 

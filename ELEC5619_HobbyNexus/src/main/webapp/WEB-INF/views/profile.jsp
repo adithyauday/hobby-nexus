@@ -34,9 +34,21 @@
 					<div class="row ml-0 pt-4"> 
 						Location: ${selected_user.location}
 					</div>
+					<div class="row ml-0 pt-4" >
+		        	<h5 class="mb-3">Hobby Groups</h5>		        
+		        	<nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">			
+		          	<ul class="section-nav" id="members">
+						<c:forEach var="obj" items="${hobbies}">
+							<li class="toc-entry toc-h2" ><a href="/nexus/hobby?hobby_id=${obj.hobby_id}"><img alt="" width="20px" height="20px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.hobby_id }&type=hobby">&nbsp;&nbsp;&nbsp;${obj.hobby_name}</a></li>
+						</c:forEach>
+					</ul>
+					</nav>
+		        </div>
 				</div>
+				
 			
 			</div>
+		
 		</div>
 	</div>
 	

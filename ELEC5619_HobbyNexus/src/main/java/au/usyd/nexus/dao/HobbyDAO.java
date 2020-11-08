@@ -12,10 +12,8 @@ import java.util.Map.Entry;
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 
 import au.usyd.nexus.domain.Hobby;

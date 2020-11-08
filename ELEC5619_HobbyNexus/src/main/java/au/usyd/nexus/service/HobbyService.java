@@ -29,7 +29,7 @@ public class HobbyService {
 		params.put("hobby_id", hobby_id);
 		return HobbyDao.findList(hql, params);
 	}
-
+	
 	public List<Article> getArticles(int hobby_id) {
 		String hql="from Article where  hobby_id=:hobby_id";
 		Map<String,Object> params=new HashMap<String, Object>();
@@ -61,6 +61,13 @@ public class HobbyService {
 	public void joinhobby(int hobby_id,int user_id) {
 		HobbyDao.joinhobby(hobby_id,user_id);
 		
+	}
+	
+	public List<Hobby> getHobbies(int user_id) {
+		String hql="select hobby from Hobby as hobby,UserhobbyMay as uhm  where uhm.hobby_id=hobby.hobby_id and uhm.user_id=:user_id";
+		Map<String,Object> params=new HashMap<String, Object>();
+		params.put("user_id", user_id);
+		return HobbyDao.findList(hql, params);
 	}
 
 

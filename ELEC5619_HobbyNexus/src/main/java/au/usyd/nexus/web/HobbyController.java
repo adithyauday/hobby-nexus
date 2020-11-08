@@ -161,6 +161,13 @@ public class HobbyController {
 	@RequestMapping(value="/joinhobby/{hobby_id}", method = RequestMethod.POST)
 	public String joinhobby(HttpSession session,@PathVariable("hobby_id") Integer hobby_id) {		
 		User user= (User) session.getAttribute("user");
+		List<User> users = hobbyService.getMembers(hobby_id);
+		for (User u: users) {
+			if(u.getUser_id() == user.getUser_id()) {
+				return "redirect:/hobby?hobby_id="+ hobby_id;
+				
+			}
+		}
 		hobbyService.joinhobby(hobby_id,user.getUser_id());
 		return "redirect:/hobby?hobby_id="+ hobby_id;
 	}
