@@ -41,11 +41,13 @@
 		  	 Hobby<br>
 		  	 <p class="desc">Learn hobbies you have always wanted to and share your skills with other members!</p>
 		  </div>
-		  <div class="grid-item2">
+		  <a href='/nexus/eventlist'>
+		  <div class="grid-item2" >
 		  	<img class ="pb-3" width="260" height="200" src="<c:url value="/resources/images/event.jpg"/>"  /> <br>
-		  	<a href='/nexus/eventlist'>Events</a><br>
+		  	<a >Events</a><br>
 		  	<p class="desc">Find and participate in local events and meet your fellow hobby enthusiasts!</p>
 		  </div>
+		  </a>
 		</div>
 	<div id="feed">
 		<h2 class=headings>Events and people near you</h2>
