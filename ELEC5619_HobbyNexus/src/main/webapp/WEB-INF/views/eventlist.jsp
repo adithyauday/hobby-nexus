@@ -12,7 +12,7 @@
 	<!-- include header -->
 	
 	<jsp:include page="header.jsp" />
-	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:60px;"></div>
+	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:20px;"></div>
 	<div class="godown-60" id="godown"></div>
 	<div class=" main-container pl-4 pt-4">
 	

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/hobby.css"/>">
 	 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
 	 <script type="text/javascript" src="<c:url value="/resources/js/hobby.js"/>"></script>
-	<script src="<c:url value="/resources/js/map.js"/>" ></script>
+	<script src="<c:url value="/resources/js/autocompleteMap.js"/>" ></script>
 	 
 </head>
 <body>
@@ -56,6 +56,7 @@
  	</tr>
  	
  	</table>
+ 	<div id="map" style="margin:auto;height:50%;width:60%;border-radius:20px;"></div>
  	</div>
  	<div>
  	<a href="/nexus/eventlist">
