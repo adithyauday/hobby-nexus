@@ -51,8 +51,10 @@ public class HobbyService {
 		return HobbyDao.save(hobby,in);
 	}
 
-	public void save(UserhobbyMay uhm) {
-		HobbyDao.save(uhm);
+	
+	
+	public void save(Object obj) {
+		HobbyDao.save(obj);
 		
 	}
 
