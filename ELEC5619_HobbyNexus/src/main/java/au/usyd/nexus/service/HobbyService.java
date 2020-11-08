@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +68,10 @@ public class HobbyService {
 		String hql="select hobby from Hobby as hobby,UserhobbyMay as uhm  where uhm.hobby_id=hobby.hobby_id and uhm.user_id=:user_id";
 		Map<String,Object> params=new HashMap<String, Object>();
 		params.put("user_id", user_id);
-		return HobbyDao.findList(hql, params);
+		List<Hobby> h = HobbyDao.findList(hql, params);
+		if(h==null)
+			h= new ArrayList<Hobby>();
+		return h;
 	}
 
 
