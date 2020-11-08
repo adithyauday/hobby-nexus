@@ -1,5 +1,8 @@
 package au.usyd.nexus.dao;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Session;
@@ -13,17 +16,17 @@ import au.usyd.nexus.domain.User;
 @Transactional
 public class UserManagerDAO {
 
-	@Resource(name="sessionFactory")
-    protected SessionFactory sessionFactory;
+	@Resource(name = "sessionFactory")
+	protected SessionFactory sessionFactory;
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
-           this.sessionFactory = sessionFactory;
-    }
-   
-    protected Session getSession(){
-           return sessionFactory.openSession();
-    }
-	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	protected Session getSession() {
+		return sessionFactory.openSession();
+	}
+
 	public void updateUserDetails(User user) {
 		Session currentSession = this.sessionFactory.getCurrentSession();
 		User existingUser = (User) currentSession.get(User.class, user.getUser_id());
@@ -32,14 +35,14 @@ public class UserManagerDAO {
 		existingUser.setEmail(user.getEmail());
 		currentSession.merge(existingUser);
 	}
-	
-	public void updateUserImage(User user) {
+
+	public void updateUserImage(User user) throws IOException, SQLException {
 		Session currentSession = this.sessionFactory.getCurrentSession();
 		User existingUser = (User) currentSession.get(User.class, user.getUser_id());
 		existingUser.setPhoto(user.getPhoto());
 		currentSession.merge(existingUser);
 	}
-	
+
 	public void updateUserPassword(User user) {
 		Session currentSession = this.sessionFactory.getCurrentSession();
 		User existingUser = (User) currentSession.get(User.class, user.getUser_id());
@@ -47,7 +50,5 @@ public class UserManagerDAO {
 		existingUser.setChangePassword(null);
 		currentSession.merge(existingUser);
 	}
-	
-	
-	
+
 }
