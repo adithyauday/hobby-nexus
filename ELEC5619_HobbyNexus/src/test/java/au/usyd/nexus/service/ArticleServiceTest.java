@@ -28,7 +28,7 @@ public class ArticleServiceTest extends TestCase{
 	
 	
 	@Test
-	public void testGetCommentById() {	
+	public void testGetArticleById() {	
 		assertEquals(article, articleService.getArticleById(123));
 		verify(articleDaoMock).getArticleById(123);
 		
