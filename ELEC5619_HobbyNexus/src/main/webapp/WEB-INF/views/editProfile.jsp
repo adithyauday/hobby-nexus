@@ -9,6 +9,9 @@
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
 	<script src="<c:url value="/resources/js/autocomplete.js"/>" ></script>
 	<link rel="stylesheet" href="<c:url value="/resources/css/editProfile.css"/>">
+	<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initAutocomplete&libraries=places&v=weekly">
+</script>
 </head>
 <body>
 	<!-- include header -->

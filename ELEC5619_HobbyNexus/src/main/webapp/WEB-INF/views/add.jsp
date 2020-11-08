@@ -8,7 +8,10 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/hobby.css"/>">
 	 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
 	 <script type="text/javascript" src="<c:url value="/resources/js/hobby.js"/>"></script>
-	<script src="<c:url value="/resources/js/map.js"/>" ></script>
+	 <script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initAutocomplete&libraries=places&v=weekly">
+</script>
+	<script src="<c:url value="/resources/js/autocompleteMap.js"/>" ></script>
 	 
 </head>
 <body>
@@ -48,7 +51,7 @@
  		<tr>
  		<td>Location</td>
 	 		<td>
-	 			<input type="text" name="location" />
+	 			<input type="text" name="location" id="location"/>
 	 		</td>
  		</tr>
  		<tr>
@@ -78,8 +81,10 @@
  		
  		</table>
  		</form>
-
+		<div id="map" style="height: 50%; width: 100%; border-radius: 20px;"></div>
  		
     </div>
+    
+	
 </body>
 </html>

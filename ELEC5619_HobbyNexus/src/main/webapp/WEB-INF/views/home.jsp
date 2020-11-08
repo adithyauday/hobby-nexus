@@ -3,7 +3,8 @@
 <html>
 <head>
 	<title>Home Page</title>
-	
+	<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initMap&libraries=&v=weekly"></script>	
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
 	<link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
 </head>

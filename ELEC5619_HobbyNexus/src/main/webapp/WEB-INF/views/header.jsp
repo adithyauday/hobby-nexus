@@ -5,14 +5,12 @@
 
 <%--Dont remove, needed for google api--%>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script defer
+<!-- <script defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initAutocomplete&libraries=places&v=weekly">
 </script>
-
-<script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initMap&libraries=&v=weekly"
->
-</script>
+ -->
+<!-- <script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initMap&libraries=&v=weekly"></script> -->
 
 <header>
 <div class="navbar navbar navbar-expand-sm navbar-light bg-light justify-content-between fixed-top" id="navMenu">
