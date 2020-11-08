@@ -19,6 +19,7 @@ public class ArticleService {
 	public void setArticleDAO(ArticleDAO articleDAO) {
 		this.articleDAO = articleDAO;
 	}
+	
     /**
      * This function returns Article object with the article id
      * 
