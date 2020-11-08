@@ -69,15 +69,16 @@
 			
 		
 			
-		<div class ="mb-3 mt-3">
+		<div class ="mb-3 mt-3" style="display:flex;">
+		
+			<!--  for user to join event -->
 			<c:if test="${user != null}">	
 				<form:form action="joinEvent/${event.event_id}/${user.user_id}" method="post" modelAttribute="events" >
-				<button class="btn btn-primary " type="submit">Join</button>
+				<button class="btn btn-primary mr-4 " type="submit">Join</button>
 				</form:form>
 			</c:if>
 			
-			<a href="/nexus/eventlist"> <button class="btn btn-primary " type="submit">Back</button>
-			</a>
+			<a href="/nexus/eventlist"> <button class="btn btn-primary " type="submit">Back</button></a>
 		</div>
 		</div>
 	</div>
