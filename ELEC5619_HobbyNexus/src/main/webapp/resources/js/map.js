@@ -35,7 +35,7 @@ function initMap() {
 
   const image = {
     url:
-      "https://i7.pngguru.com/preview/193/660/856/computer-icons-woman-avatar-clip-art-avatar-girl.jpg",
+      "https://www.pngkey.com/png/detail/30-301664_calendar-emblem-events-icon-white-png.png",
     // This marker is 32 pixels wide by 32 pixels high.
     scaledSize: new google.maps.Size(32, 32),
     // The origin for this image is (0, 0).

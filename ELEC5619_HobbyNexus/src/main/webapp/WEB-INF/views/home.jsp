@@ -13,7 +13,7 @@
 	}
 	
 	if(!localStorage.getItem("eventList")){
-		Var eventMap = new Map()
+		var eventMap = new Map();
 		localStorage.setItem('eventList', eventMap)
 	}	
 	

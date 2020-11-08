@@ -70,6 +70,8 @@
 			    // For each place, get the icon, name and location.
 			    const bounds = new google.maps.LatLngBounds();
 			    places.forEach((place) => {
+			    	eventLoc = place.geometry.location;
+				      console.log("The location of event is " + eventLoc);
 			      if (!place.geometry) {
 			        console.log("Returned place contains no geometry");
 			        return;
@@ -91,8 +93,7 @@
 			        })
 			      );
 			      
-			      eventLoc = place.geometry.location;
-			      console.log("The location of event is " + eventLoc);`
+			      
 
 			      if (place.geometry.viewport) {
 			        // Only geocodes have viewport.
@@ -104,15 +105,22 @@
 			    map.fitBounds(bounds);
 			  });
 			}
-	 		
-	 		/* var eventCount = localStorage.getItem("eventCount")
+	 
+	
+	 $("#submit").click(function(){
+		 var eventCount = localStorage.getItem("eventCount")
 	 		var eventID = eventCount++ 
 	 		var eventMap = localStorage.getItem("eventList")
+	 		console.log('count: '+ eventID + ", location: " + eventLoc)
 	 		eventMap.set(eventID, eventLoc)
 	 		localStorage.setItem("eventList", eventMap)	 		
 			localStorage.setItem('eventCount', eventCount++)
-			console.log(localStorage.getItem("eventList")) */
+			console.log(localStorage.getItem("eventList"))
+		  alert("button was clicked.");
+		});
+	 		 
 			 </script>
+			 
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -138,9 +146,9 @@
 			 		<td>Skill Level</td>
 			 		<td>
 						  <select name="skill_level_limit" id="skill_level_limit">
-						    <option value="Beginner">Beginner</option>
-						    <option value="Intermediate">Intermediate</option>
-						    <option value="Advanced">Advanced</option>
+						    <option value="1">Beginner</option>
+						    <option value="2">Intermediate</option>
+						    <option value="3">Advanced</option>
 						    
 						  </select>
 			 		</td>
@@ -174,7 +182,7 @@
 		 		
 		 		
 		 		<tr>
-			 		<td colspan ='2'><input type="submit" name="ADD" class="btn btn-primary " value="Create Event" /></td>
+			 		<td colspan ='2'><input id='submit' type="submit" name="ADD" class="btn btn-primary " value="Create Event" /></td>
 		 		</tr>
 	 		
 	 		</table>
