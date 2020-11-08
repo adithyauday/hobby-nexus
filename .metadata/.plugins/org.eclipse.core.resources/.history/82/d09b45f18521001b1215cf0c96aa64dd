@@ -1,0 +1,27 @@
+package au.usyd.nexus.web;
+
+import static org.mockito.Mockito.when;
+import java.util.List;
+import java.util.ArrayList;
+import org.mockito.Mockito;
+
+import au.usyd.nexus.domain.User;
+import au.usyd.nexus.service.SearchService;
+import junit.framework.TestCase;
+
+public class SearchControllerTest extends TestCase {
+
+	SearchController sc = new SearchController();
+	
+	SearchService ss = Mockito.mock(SearchService.class);
+	String searchText = "John";
+	User invalidUser = new User("Doe","test2@test.email", "password");
+	User validUser = new User("John","test@test.email", "password");
+	List<User> validUserList = new ArrayList<User>();
+	
+	protected void setUp() throws Exception {
+		validUserList.add(validUser);
+		sc.setSearchService(ss);
+		when(ss.search(searchText)).thenReturn(validUserList);
+	}
+}
