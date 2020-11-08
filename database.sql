@@ -94,9 +94,9 @@ INSERT INTO `article` VALUES ('3', '1', '1003', 'Do you still believe that readi
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
-  `comment_id` int(11) NOT NULL,
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
-  `artice_id` int(11) DEFAULT NULL,
+  `artice_id` int(11) DEFAULT NULL ,
   `title` varchar(500) DEFAULT NULL,
   `content` text,
   `create_time` datetime DEFAULT NULL,
@@ -196,6 +196,5 @@ INSERT INTO `user_event_map` VALUES ('1004', '1001', '2', '2019-10-23 00:00:00')
 INSERT INTO `user_event_map` VALUES ('1005', '1002', '2', '2019-10-23 00:00:00');
 INSERT INTO `user_event_map` VALUES ('1006', '1003', '2', '2019-10-23 00:00:00');
 INSERT INTO `user_event_map` VALUES ('1007', '1004', '3', '2019-10-24 00:00:00');
-
 
 
