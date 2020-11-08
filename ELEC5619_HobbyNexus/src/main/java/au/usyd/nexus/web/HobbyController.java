@@ -36,7 +36,7 @@ public class HobbyController {
     private HobbyService hobbyService;  
 	
 	@RequestMapping("/hobby")
-	public String hobby(Model model,HttpServletRequest request,Integer hobby_id) {
+	public String hobby(Model model,HttpServletRequest request,Integer hobby_id, HttpSession session) {
 		List<User> users=hobbyService.getMembers(hobby_id);
 		model.addAttribute("users", users);
 		List<Article> articles=hobbyService.getArticles(hobby_id);
@@ -44,6 +44,9 @@ public class HobbyController {
 
 		Hobby hobby=hobbyService.getHobby(hobby_id);
 		model.addAttribute("hobby", hobby);
+		
+		User user= (User) session.getAttribute("user");
+		model.addAttribute("currentUser", user);
 		return "hobby";
 	}
 	
@@ -56,7 +59,12 @@ public class HobbyController {
         
         if("user".equals(type)){
         	User user=hobbyService.getUser(id);
-        	b=user.getPhoto();
+        	try {
+				b=user.getPhoto();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         	
         }else{
         	Hobby hobby=hobbyService.getHobby(id);

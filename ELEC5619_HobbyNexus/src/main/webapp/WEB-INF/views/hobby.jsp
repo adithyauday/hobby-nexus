@@ -23,8 +23,9 @@
 		 	<img alt="" width="100px" height="100px" src="<%=request.getContextPath()%>/imgDisplay?id=${hobby.hobby_id }&type=hobby">
 		 	<div class="hobbyname"><h3 >${hobby.hobby_name }</h3>
 		 	</div>
+		 	<c:if test="${currentUser != null}">	
 		 	<a class="btn btn-default float-right" href="#" role="button"  data-toggle="modal" data-target="#myModal">Create Hobby</a>
-		 	
+		 	</c:if>
 		 	</div>
 		 	<p class="hobbydesc">${hobby.hobby_desc }</p>
 		 	
