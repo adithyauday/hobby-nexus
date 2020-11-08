@@ -6,7 +6,7 @@
 <%--Dont remove, needed for google api--%>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&libraries=places&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initAutocomplete&libraries=places&v=weekly">
 </script>
 
 <header>

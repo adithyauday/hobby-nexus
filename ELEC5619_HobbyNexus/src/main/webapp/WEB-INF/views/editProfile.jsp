@@ -7,7 +7,7 @@
 	<title>User Profile</title>
 	
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
-	<script src="<c:url value="/resources/js/autocomplete.js"/>" ></script>
+	<!-- <script src="<c:url value="/resources/js/autocomplete.js"/>" ></script>  -->
 	<link rel="stylesheet" href="<c:url value="/resources/css/editProfile.css"/>">
 </head>
 <body>
@@ -46,9 +46,22 @@
 					
 					<div class="row ml-0 pt-4" id="locationField"> 
 						<label for="location">Location:</label><br>
-  						<form:input class="form-control input-sm" path="location" type="text" id="location" name="location"  value="${user.location}" placeholder="Enter your address"
-        onFocus="geolocate()"/><br>
+  						<form:input class="form-control input-sm" path="location" type="text" id="location" name="location"  value="${user.location}" placeholder="Enter your address"/><br>
 					</div>
+					<div id="map"></div>
+					<script>
+						function initAutocomplete() {
+							  const map = new google.maps.Map(document.getElementById("map"), {
+							    center: { lat: -33.8688, lng: 151.2195 },
+							    zoom: 13,
+							    mapTypeId: "roadmap",
+							  });
+							  // Create the search box and link it to the UI element.
+							  const input = document.getElementById("location");
+							  const searchBox = new google.maps.places.SearchBox(input);
+						  
+						}
+					</script>
 					
 					<spring:bind path="email">
 					<div class="row ml-0 pt-4"> 
