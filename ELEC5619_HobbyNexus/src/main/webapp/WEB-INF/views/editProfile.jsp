@@ -7,7 +7,7 @@
 	<title>User Profile</title>
 	
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
-	<!-- <script src="<c:url value="/resources/js/autocomplete.js"/>" ></script>  -->
+	<script src="<c:url value="/resources/js/autocomplete.js"/>" ></script>
 	<link rel="stylesheet" href="<c:url value="/resources/css/editProfile.css"/>">
 </head>
 <body>
