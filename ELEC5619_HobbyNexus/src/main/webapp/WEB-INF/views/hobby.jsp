@@ -25,6 +25,7 @@
 		 	</div>
 		 	<c:if test="${currentUser != null}">	
 		 	<a class="btn btn-default float-right" href="#" role="button"  data-toggle="modal" data-target="#myModal">Create Hobby</a>
+		 	<a class="btn btn-default float-right" href="#" role="button"  data-toggle="modal" data-target="#myPost">Create Post</a>
 		 	</c:if>
 		 	</div>
 		 	<p class="hobbydesc">${hobby.hobby_desc }</p>
@@ -71,59 +72,64 @@
 		    </div>
 	    </div>
     </div>
-<!--   <div class="modal fade" id="myModal">
+ <div class="modal fade" id="myPost">
     <div class="modal-dialog">
       <div class="modal-content">
    
         <div class="modal-header">
-          <h4 class="modal-title">Create Hobby</h4>
+          <h4 class="modal-title">Create Post</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
    
         <div class="modal-body">
-            <form enctype="multipart/form-data" method="post" id="form1" name="form1" >
+            <form  method="post" id="form2" name="form2" >
 
           <div class="form-group">
-            <label for="recipient-name" class="control-label">Hobby Name:</label>
-            <input type="text" class="form-control" id="hobbyname">
+            <label for="recipient-name" class="control-label">Article Title<font style="color: red;">*</font>:</label>
+            <input type="text" name="title" class="form-control" id="title">
           </div>
 
           <div class="form-group">
-            <label for="recipient-name" class="control-label">Hobby Name:</label>
-              <input id="file-fr"  style="display: block;" name="file" type="file" multiple>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Description:</label>
-            <textarea class="form-control"  id="description"></textarea>
+            <label for="message-text" class="control-label">Article Content<font style="color: red;">*</font>:</label>
+            <textarea class="form-control" name="content"   id="content"></textarea>
           </div>
     </form>
 
    
         <div class="modal-footer">
            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="sub()">Save</button>
+        <button type="button" class="btn btn-primary" onclick="sub1()">Save</button>
         </div>
    
       </div>
     </div>
   </div>
   
-</div>    -->
+</div> 
 
-<%-- <script src="http://malsup.github.com/jquery.form.js"></script>
 <script type="text/javascript">
-function sub(){
-	var description=$("#description").val();
-	var hobbyname=$("#hobbyname").val();
-	$("#form1").ajaxSubmit({
-		url:'<%=request.getContextPath()%>/savehobby?hobby_name='+hobbyname+'&hobby_desc='+description,
+function sub1(){
+	var title=$("#title").val();
+	if(title==""||title.length==0){
+		alert("Title cannot be empty");
+		return;
+	}
+
+	var content=$("#content").val();
+	if(content==""||content.length==0){
+		alert("Content cannot be empty");
+		return;
+	}
+	$.ajax({
+		url:'<%=request.getContextPath()%>/saveArticle',
 		dataType:'json',
 		type:'post',
+		data:{'title':title,'content':content,'hobby_id':'${hobby.hobby_id }'},
 		success:function(res){
 			if(res.result){
 				alert(res.msg);
-				$('#myModal').modal('hide');
-				location.reload();
+				$('#myPost').modal('hide');
+				window.location.href='<%=request.getContextPath()%>/hobby?hobby_id=${hobby.hobby_id }';
 			}else{
 				alert(res.msg);
 			}
@@ -131,6 +137,6 @@ function sub(){
 	});
 }
 
-</script> --%>
+</script>
 </body>
 </html>

@@ -91,16 +91,16 @@
             <form enctype="multipart/form-data" method="post" id="form1" name="form1" >
 
           <div class="form-group">
-            <label for="recipient-name" class="control-label">Hobby Name:</label>
+            <label for="recipient-name" class="control-label">Hobby Name<font style="color: red;">*</font>:</label>
             <input type="text" class="form-control" id="hobbyname">
           </div>
 
           <div class="form-group">
-            <label for="recipient-name" class="control-label">Hobby Name:</label>
+            <label for="recipient-name" class="control-label">Hobby Picture<font style="color: red;">*</font>:</label>
               <input id="file-fr"  style="display: block;" name="file" type="file" multiple>
           </div>
           <div class="form-group">
-            <label for="message-text" class="control-label">Description:</label>
+            <label for="message-text" class="control-label">Description<font style="color: red;">*</font>:</label>
             <textarea class="form-control"  id="description"></textarea>
           </div>
     </form>
@@ -146,6 +146,8 @@ function sub(){
 				alert(res.msg);
 				$('#myModal').modal('hide');
 				location.reload();
+				window.location.href='<%=request.getContextPath()%>/hobby?hobby_id='+res.hobby_id;
+
 			}else{
 				alert(res.msg);
 			}
