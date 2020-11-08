@@ -32,7 +32,7 @@ public class SearchDetDAO {
     protected SessionFactory sessionFactory;
 	@PersistenceContext
 	EntityManager entityManager;
-	static int count = 0;
+
 	public void setFullTextEntityManager() {
 		FullTextEntityManager fullTextEntityManager2 = Search.getFullTextEntityManager(entityManager);
 	  	try {
@@ -53,10 +53,7 @@ public class SearchDetDAO {
     
     @SuppressWarnings("unchecked")
 	public List<User> search(String searchItem){
-    	if(count == 0) {
-    		setFullTextEntityManager();
-    		count++;
-    	}
+    			
 	  	FullTextEntityManager fullTextEntityManager =
 	  		    org.hibernate.search.jpa.Search.getFullTextEntityManager(entityManager);
 	  	
@@ -102,12 +99,6 @@ public class SearchDetDAO {
 	  	List<Hobby> results = jpaQuery.getResultList();
 
 		return results;
-    }
-    
-    @SuppressWarnings("unchecked")
-	public List<Hobby> searchAllHobby(){        
-    	return (List<Hobby>)this.getSession().createQuery("from Hobby as o").list();
-    	
     }
 
 }

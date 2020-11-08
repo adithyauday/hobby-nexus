@@ -20,7 +20,7 @@ public class SearchController {
 	@Autowired
 	private SearchService searchService;
 	
-	public void setSearchService(SearchService ps){
+		public void setSearchService(SearchService ps){
 		this.searchService = ps;
 	}
 	
@@ -40,15 +40,6 @@ public class SearchController {
 	public ModelAndView search() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("searchText");
-		return mv;
-	}
-	
-	@RequestMapping(value = "/hobbyList", method = RequestMethod.GET)
-	public ModelAndView searchAllHobbies() {
-		ModelAndView mv = new ModelAndView();
-		
-		List<Hobby> hobbyList = this.searchService.searchAllHobby();
-		mv.addObject("hobbyList", hobbyList);
 		return mv;
 	}
 

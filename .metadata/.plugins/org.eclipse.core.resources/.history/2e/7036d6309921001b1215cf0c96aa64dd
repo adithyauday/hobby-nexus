@@ -30,8 +30,5 @@ public class SearchService {
 	public List<Hobby> searchHobby(String searchItem){
 		return this.searchDetDAO.searchHobby(searchItem);
 	}
-	@Transactional
-	public List<Hobby> searchAllHobby(){
-		return this.searchDetDAO.searchAllHobby();
-	}
+	
 }

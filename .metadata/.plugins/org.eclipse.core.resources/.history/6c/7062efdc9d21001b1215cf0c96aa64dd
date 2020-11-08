@@ -37,17 +37,15 @@
 		<h3 class="center"><i> Find and Explore your interests!</i> </h3>
 		
 		<div class="grid-container">
-		<a href='/nexus/hobbyList'>
 		  <div class="grid-item2">
 		  	<img class ="pb-3" width="260" height="200" src="<c:url value="/resources/images/hobby.jpg"/>"  /><br>
-		  	<a>Hobbys</a><br>
+		  	 Hobby<br>
 		  	 <p class="desc">Learn hobbies you have always wanted to and share your skills with other members!</p>
 		  </div>
-		  </a>
 		  <a href='/nexus/eventlist'>
-		  <div class="grid-item2">
+		  <div class="grid-item2" >
 		  	<img class ="pb-3" width="260" height="200" src="<c:url value="/resources/images/event.jpg"/>"  /> <br>
-		  	<a>Events</a><br>
+		  	<a >Events</a><br>
 		  	<p class="desc">Find and participate in local events and meet your fellow hobby enthusiasts!</p>
 		  </div>
 		  </a>

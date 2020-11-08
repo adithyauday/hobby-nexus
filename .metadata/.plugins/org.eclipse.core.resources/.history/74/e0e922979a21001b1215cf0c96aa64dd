@@ -43,7 +43,7 @@ public class SearchController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/hobbyList", method = RequestMethod.GET)
+	@RequestMapping(value = "/hobbyList", method = RequestMethod.POST)
 	public ModelAndView searchAllHobbies() {
 		ModelAndView mv = new ModelAndView();
 		

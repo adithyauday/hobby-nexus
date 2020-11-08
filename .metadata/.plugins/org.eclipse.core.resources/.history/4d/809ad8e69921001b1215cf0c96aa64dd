@@ -103,11 +103,5 @@ public class SearchDetDAO {
 
 		return results;
     }
-    
-    @SuppressWarnings("unchecked")
-	public List<Hobby> searchAllHobby(){        
-    	return (List<Hobby>)this.getSession().createQuery("from Hobby as o").list();
-    	
-    }
 
 }
