@@ -18,8 +18,6 @@
 	<div class=" main-container pl-4 pt-4">
 	
 		
-		<c:if test="${user != null}">
-		
 		<div>
 		<h3>The Upcoming events</h3>
 		<form>
@@ -50,8 +48,6 @@
 		</form>
 
 	</div>
-	
-	</c:if> 
 	
 	</div>
 	
