@@ -19,12 +19,12 @@
  ## Project Setup 
  - Make sure Spring STS version 3.9 is installed 
  
- ## Through project import:
+ ### Through project import:
   - Click File > Import Projects > Maven > Existing Maven Projects
   - Click Browse and choose the project folder and click Finish
   - Add project to Tomcat Server and run
   
- ## Through Github link:
+ ### Through Github link:
   - Make sure EGit extension is installed in Eclipse
   - Window > Show View > Others> Git > Git Repositories 
   - In Git Repositories window, click "Clone a repository and add the clone to this view"
@@ -36,5 +36,16 @@
   - Right click on the cloned repository in Git Repository Window and choose "Import Maven Project"
   - Add project to Tomcat Server and run
   
+  ## Project Walkthrough
+  
+  1. Hobby
+  - Users can search for hobbies through the search bar or links available in the homepage
+  - Users can view the Hobby board for a particular hobby and read posts and comments made by other users.
+  - Users must have an account to create hobbies or comment on posts.
+  
+  2. Event
+  - Users can search for events through the search bar or links available in the homepage
+  - Users can view the event information including location, date and attendees and join events.
+  - Users must have an account to create and join events.
 
   
