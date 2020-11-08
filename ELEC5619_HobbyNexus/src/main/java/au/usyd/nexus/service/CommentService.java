@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import au.usyd.nexus.dao.CommentDAO;
+import au.usyd.nexus.dao.LoginDAO;
 import au.usyd.nexus.domain.Comment;
 import au.usyd.nexus.domain.User;
 
@@ -13,6 +14,11 @@ import au.usyd.nexus.domain.User;
 public class CommentService {
 	@Autowired
 	private CommentDAO commentDAO;
+	
+	//For test purpose
+	public void setCommentDAO(CommentDAO commentDAO) {
+		this.commentDAO = commentDAO;
+	}
 	
     /**
      * This function returns Comment object with the comment id
