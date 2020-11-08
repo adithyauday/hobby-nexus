@@ -2,9 +2,9 @@ package au.usyd.nexus.web;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -121,11 +121,37 @@ public class HobbyController {
 			uhm.setUser_id(user.getUser_id());
 			uhm.setSkill_level(1);
 			hobbyService.save(uhm);
+			result.put("hobby_id", hobby_id);
 			result.put("result", true);
 			result.put("msg", "Success");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return result;
+
+	}
+	
+	/**
+	 * 
+	* @Description: save  Article
+	* @return   
+	* @throws
+	 */
+	@RequestMapping("/saveArticle")
+	@ResponseBody
+	public Map<String, Object> saveArticle(Article  article,HttpSession session){
+		Map<String, Object> result = new HashMap<String, Object>();
+		User user= (User) session.getAttribute("user");
+		if(user==null){
+			result.put("result", false);
+			result.put("msg", "Please Sign in");
+			return result;
+		}
+		article.setCreate_time(new Date());
+		article.setUser(user);
+		hobbyService.save(article);
+		result.put("result", true);
+		result.put("msg", "Success");
 		return result;
 
 	}
