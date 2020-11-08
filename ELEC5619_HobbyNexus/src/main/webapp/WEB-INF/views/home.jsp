@@ -7,6 +7,17 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initMap&libraries=&v=weekly"></script>	
 	<script src="<c:url value="/resources/js/map.js"/>" ></script>
 	<link rel="stylesheet" href="<c:url value="/resources/css/home.css"/>">
+	<script>
+	if(!localStorage.getItem("eventCount")){
+		localStorage.setItem('eventCount', 0)
+	}
+	
+	if(!localStorage.getItem("eventList")){
+		Var eventMap = new Map()
+		localStorage.setItem('eventList', eventMap)
+	}	
+	
+	</script>
 </head>
 <body data-spy="scroll">
 	<!-- include header -->

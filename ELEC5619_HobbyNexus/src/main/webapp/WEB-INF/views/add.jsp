@@ -13,7 +13,9 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initAutocomplete&libraries=places&v=weekly">
 </script>
 	<script src="<c:url value="/resources/js/autocompleteMap.js"/>" ></script>
-	 <script>function initAutocomplete() {
+	 <script>
+	 var eventLoc;
+	 function initAutocomplete() {
 		  const map = new google.maps.Map(document.getElementById("map"), {
 			    center: { lat: -33.8688, lng: 151.2195 },
 			    zoom: 13,
@@ -51,7 +53,7 @@
 			  map.addListener("bounds_changed", () => {
 			    searchBox.setBounds(map.getBounds());
 			  });
-			  let markers = [];
+			  let markers = []; 
 			  // Listen for the event fired when the user selects a prediction and retrieve
 			  // more details for that place.
 			  searchBox.addListener("places_changed", () => {
@@ -88,6 +90,9 @@
 			          position: place.geometry.location,
 			        })
 			      );
+			      
+			      eventLoc = place.geometry.location;
+			      console.log("The location of event is " + eventLoc);`
 
 			      if (place.geometry.viewport) {
 			        // Only geocodes have viewport.
@@ -98,9 +103,16 @@
 			    });
 			    map.fitBounds(bounds);
 			  });
-			}/**
-			 * 
-			 */</script>
+			}
+	 		
+	 		/* var eventCount = localStorage.getItem("eventCount")
+	 		var eventID = eventCount++ 
+	 		var eventMap = localStorage.getItem("eventList")
+	 		eventMap.set(eventID, eventLoc)
+	 		localStorage.setItem("eventList", eventMap)	 		
+			localStorage.setItem('eventCount', eventCount++)
+			console.log(localStorage.getItem("eventList")) */
+			 </script>
 </head>
 <body>
 <jsp:include page="header.jsp" />
