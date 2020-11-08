@@ -6,6 +6,7 @@
 	<title>Add Event</title>
 	
 	<link rel="stylesheet" href="<c:url value="/resources/css/hobby.css"/>">
+	<link rel="stylesheet" href="<c:url value="/resources/css/profile.css"/>">
 	 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
 	 <script type="text/javascript" src="<c:url value="/resources/js/hobby.js"/>"></script>
 	 <script defer
@@ -16,73 +17,75 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-	<div class="container bs-docs-container" style="padding-top:100px;">
- 	<div style="padding-top:100px;"><h3>The Detail of the Event</h3></div><br>
- 	
- 		<form action="/nexus/addevent" method="post">
- 		<table>
- 		<tr>
- 			<th colspan="2"> Add an Event </th>
- 		</tr>
- 		<tr>
- 		<td>Event Name</td>
- 		<td>
- 			<input type="text" name="event_name" />
- 		</td>
- 		</tr>
- 		<tr>
- 		<td>Event Description</td>
- 		<td>
- 			<input type="text" name="event_desc" />
- 		</td>
- 		</tr>
- 		<tr>
- 		<td>Skill Level</td>
- 		<td>
- 			<input type="text" name="skill_level_limit" />
- 		</td>
- 		</tr>
- 		<tr>
- 		<td>Number Limitation</td>
- 		<td>
- 			<input type="text" name="number_limit" />
- 		</td>
- 		</tr>
- 		<tr>
- 		<td>Location</td>
+	<jsp:include page="header.jsp" />
+	<div class="godown-60" id="godown"></div>
+	<div class=" main-container">
+	 	<h2 class ="pageHeading">Add Event</h2><br>
+	 		<div class="container">
+	 		<form action="/nexus/addevent" method="post">
+	 		<table>
+	 		<tr>
+	 			<th colspan="2"> Add an Event </th>
+	 		</tr>
+	 		<tr>
+	 		<td>Event Name</td>
 	 		<td>
-	 			<input type="text" name="location" id="location"/>
+	 			<input type="text" name="event_name" />
 	 		</td>
- 		</tr>
- 		<tr>
-	 		<td>Event Date (Format:yyyy-dd-mm hh:mm:ss)</td>
+	 		</tr>
+	 		<tr>
+	 		<td>Event Description</td>
 	 		<td>
-	 			<input type="text" name="event_date" />
- 		</td>
- 		</tr>
- 		<tr>
- 		<td>Hobby</td>
+	 			<input type="text" name="event_desc" />
+	 		</td>
+	 		</tr>
+	 		<tr>
+	 		<td>Skill Level</td>
 	 		<td>
-	 			<select name="hobby.hobby_id">
-	 			<option>-SELECT Hobby-</option>
- 	 			<c:forEach items="${hobbys }" var="hobby">
- 	 			<option value="${hobby.hobby_id} "><c:out value="${hobby.hobby_name}"></c:out></option>
- 	 			</c:forEach> 
-					</select>
+	 			<input type="text" name="skill_level_limit" />
 	 		</td>
- 		</tr>
- 		
- 		<tr>
-	 		<td colspan ='2'>
-	 			<input type="submit" name="ADD" />
-	 			
+	 		</tr>
+	 		<tr>
+	 		<td>Number Limitation</td>
+	 		<td>
+	 			<input type="text" name="number_limit" />
 	 		</td>
- 		</tr>
- 		
- 		</table>
- 		</form>
+	 		</tr>
+	 		<tr>
+	 		<td>Location</td>
+		 		<td>
+		 			<input type="text" name="location" id="location"/>
+		 		</td>
+	 		</tr>
+	 		<tr>
+		 		<td>Event Date (Format:yyyy-dd-mm hh:mm:ss)</td>
+		 		<td>
+		 			<input type="text" name="event_date" />
+	 		</td>
+	 		</tr>
+	 		<tr>
+	 		<td>Hobby</td>
+		 		<td>
+		 			<select name="hobby.hobby_id">
+		 			<option>-SELECT Hobby-</option>
+	 	 			<c:forEach items="${hobbys }" var="hobby">
+	 	 			<option value="${hobby.hobby_id} "><c:out value="${hobby.hobby_name}"></c:out></option>
+	 	 			</c:forEach> 
+						</select>
+		 		</td>
+	 		</tr>
+	 		
+	 		<tr>
+		 		<td colspan ='2'>
+		 			<input type="submit" name="ADD" />
+		 			
+		 		</td>
+	 		</tr>
+	 		
+	 		</table>
+	 		</form>
 		<div id="map" style="height: 50%; width: 100%; border-radius: 20px;"></div>
- 		
+ 		</div>
     </div>
     
 	
