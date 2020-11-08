@@ -1,13 +1,10 @@
 package au.usyd.nexus.service;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*; 
 
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import au.usyd.nexus.dao.CommentDAO;
-import au.usyd.nexus.dao.LoginDAO;
 import au.usyd.nexus.domain.Comment;
 import junit.framework.TestCase;
 

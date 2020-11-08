@@ -1,19 +1,12 @@
 package au.usyd.nexus.dao;
-
-import org.springframework.stereotype.Component; 
+ 
 import org.springframework.stereotype.Repository;
-
 import au.usyd.nexus.domain.Article;
-import au.usyd.nexus.domain.User;
-
 import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Query;
-import java.util.List;
+
 
 
 @Repository

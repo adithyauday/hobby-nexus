@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import au.usyd.nexus.dao.CommentDAO;
-import au.usyd.nexus.dao.LoginDAO;
 import au.usyd.nexus.domain.Comment;
 import au.usyd.nexus.domain.User;
 
