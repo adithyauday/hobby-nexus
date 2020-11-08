@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserTest" project="ELEC5619_HobbyNexus" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="au.usyd.nexus.domain.UserTest" time="0.0">
+    <testcase name="testSetandGetUsername" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+    <testcase name="testSetandGetPassword" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+    <testcase name="testSetandGetLocation" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+    <testcase name="testSetandGetEmail" classname="au.usyd.nexus.domain.UserTest" time="0.0"/>
+  </testsuite>
+</testrun>
