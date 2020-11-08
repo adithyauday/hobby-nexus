@@ -81,7 +81,7 @@
 		 		
 		 		
 		 		<tr>
-			 		<td colspan ='2'><input type="submit" name="ADD" class="btn btn-primary " value="Create Hobby" /></td>
+			 		<td colspan ='2'><input type="submit" name="ADD" class="btn btn-primary " value="Create Event" /></td>
 		 		</tr>
 	 		
 	 		</table>

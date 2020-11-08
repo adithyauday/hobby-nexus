@@ -21,7 +21,9 @@
 			<div class="container bs-docs-container" style="padding-top:10px;">
 		 	<div class="ne-hobby-name">
 		 	<img alt="" width="100px" height="100px" src="<%=request.getContextPath()%>/imgDisplay?id=${hobby.hobby_id }&type=hobby">
-		 	<div class="hobbyname"><h3 >${hobby.hobby_name }</h3><a class="btn  btn-default" href="#" role="button"  data-toggle="modal" data-target="#myModal">Create Hobby</a></div>
+		 	<div class="hobbyname"><h3 >${hobby.hobby_name }</h3>
+		 	</div>
+		 	<a class="btn btn-default float-right" href="#" role="button"  data-toggle="modal" data-target="#myModal">Create Hobby</a>
 		 	
 		 	</div>
 		 	<p class="hobbydesc">${hobby.hobby_desc }</p>
@@ -33,7 +35,7 @@
 						<c:forEach var="obj" items="${articles}">
 							<div class="ne-hobby-article" >
 								<dl>
-									<dt style="font-size: 16px;"><a href="javascript:openDetail('ne-user-${obj.user.user_id}')" style="color: #212529;"><img alt="" width="30px" height="30px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user.user_id }&type=user">&nbsp;&nbsp;&nbsp;${obj.user.user_name }</a></dt>
+									<dt style="font-size: 16px;"><a href="/nexus/viewProfile?user_id=${obj.user.user_id}" style="color: #212529;"><img alt="" width="30px" height="30px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user.user_id }&type=user">&nbsp;&nbsp;&nbsp;${obj.user.user_name }</a></dt>
 									<dt style="font-size: 20px;"><a href="<%=request.getContextPath()%>/post?article_id=${obj.artice_id}" >${obj.title }</a></dt>
 									<dd style="font-size: 18px;">${obj.content }</dd>
 								</dl>
@@ -54,23 +56,14 @@
 						</div>
 					</div>
 		        <div class="col-md-3" >
-		          <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">			
-		          <ul class="section-nav" id="members">
-					<c:forEach var="obj" items="${users}">
-					<li class="toc-entry toc-h2" ><a href="javascript:openDetail('ne-user-${obj.user_id}')"><img alt="" width="20px" height="20px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user_id }&type=user">&nbsp;&nbsp;&nbsp;${obj.user_name}</a></li>
-					<div style="display:none" class="ne-user-${obj.user_id}">
-						<img alt="" width="90px" height="100px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user_id}&type=user">&nbsp;&nbsp;&nbsp;
-						<dl>
-						<dt>${obj.user_name}</dt>
-						<dt>email:${obj.email}</dt>
-						<dt>location:${obj.location }</dt>
-						</dl>
-					</div>
-					</c:forEach>
+		        	<h4 class="mb-3">Group Members</h4>		        
+		        	<nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top">			
+		          	<ul class="section-nav" id="members">
+						<c:forEach var="obj" items="${users}">
+							<li class="toc-entry toc-h2" ><a href="/nexus/viewProfile?user_id=${obj.user_id}"><img alt="" width="20px" height="20px" src="<%=request.getContextPath()%>/imgDisplay?id=${obj.user_id }&type=user">&nbsp;&nbsp;&nbsp;${obj.user_name}</a></li>
+						</c:forEach>
 					</ul>
-					
-		
-		          </nav>
+					</nav>
 		        </div>
 		        
 		      </div>
@@ -107,7 +100,7 @@
    
         <div class="modal-footer">
            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="sub()">Save message</button>
+        <button type="button" class="btn btn-primary" onclick="sub()">Save</button>
         </div>
    
       </div>
