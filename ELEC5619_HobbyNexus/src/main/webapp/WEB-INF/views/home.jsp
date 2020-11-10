@@ -77,13 +77,14 @@
 	  //Auto adjust zoom based on markers
 	  var bounds = new google.maps.LatLngBounds();
 
-	 var markers = [];
-	 var infoWindows=[];
+
+
 	 for (var i = 0; i < features.length; i++) {
 		 contentString = 
-	          "<h2>Name</h2>"+
-	          "<h3>Hobbies</h3>"+
-	          "<p>Description</p>"
+			 "<div id='iw-container'>"+
+	          "<h2 class='iw-content'><h2 class='iw-subTitle'> Event Title</h2>"+
+	          "<div id=<h3 id='hobby_title'>Hobby</h3>"+
+	          "<p class='iw-subTitle'>Description</p></div>"
 	    const infowindow = new google.maps.InfoWindow({
 	    content: contentString,
 	    });
@@ -93,19 +94,19 @@
 	      icon: image,
 	      map: map
 	    });
-	    markers.push(marker)
-	    infoWindows.push(marker)
-	  }
-	 console.log(markers)
-	 
-	  for (var i = 0; i < features.length; i++) {
-	   
-	   	markers[i].addListener("click", () => {
-	    infowindow[i].open(map, marker);
-	  });
+	    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+	        return function() {
+	            infowindow.setContent(content);
+	            infowindow.open(map,marker);
+	        };
+	    })(marker,contentString,infowindow));  
+	    google.maps.event.addListener(map, 'click', function() {
+	        infowindow.close();
+	      });
+	        
 	  }
 	  
-	  map.fitBounds(bounds);
+	  
 	}
 	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	  infoWindow.setPosition(pos);
