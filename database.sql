@@ -174,7 +174,7 @@ INSERT INTO `event` VALUES ('3', '3', 'yoga in Watsons bay', 'A yoga activity wi
 -- ----------------------------
 DROP TABLE IF EXISTS `user_event_map`;
 CREATE TABLE `user_event_map` (
-  `user_event_id` int NOT NULL,
+  `user_event_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `event_id` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
