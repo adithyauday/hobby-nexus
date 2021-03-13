@@ -28,7 +28,7 @@
   - Make sure EGit extension is installed in Eclipse
   - Window > Show View > Others> Git > Git Repositories 
   - In Git Repositories window, click "Clone a repository and add the clone to this view"
-  - In the URI, enter "https://github.sydney.edu.au/cfel3191/ELEC5619.git"
+  - In the URI, enter "https://github.com/adithyauday/hobby-nexus"
   - Enter user and password
   - Click next
   - Choose master branch and click next
