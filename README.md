@@ -1,4 +1,4 @@
-# ELEC5619
+# Hobby Nexus
 
 ## Environment Setup
 
