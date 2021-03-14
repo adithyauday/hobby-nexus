@@ -10,7 +10,7 @@
 	 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
 	 <script type="text/javascript" src="<c:url value="/resources/js/hobby.js"/>"></script>
 	 <script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCfsB5BOxZG-MyxFJ_ecDHBewP46PCKpw&callback=initAutocomplete&libraries=places&v=weekly">
+  src="Insert API key">
 </script>
 	<script src="<c:url value="/resources/js/autocompleteMap.js"/>" ></script>
 	 <script>
